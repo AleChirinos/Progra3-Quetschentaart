@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">The Real Cupid</string>
+    <string name="login">Log in</string>
+    <string name="register">Register</string>
+</resources>
