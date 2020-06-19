@@ -11,7 +11,7 @@ import android.widget.Button;
 public class LoginActivity extends AppCompatActivity {
 
     public static String LOG = LoginActivity.class.getName();
-    private Button buttonLogin;
+    private Button buttonLogin3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +23,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     private void initViews() {
-        buttonLogin = findViewById(R.id.loginButton);
+        buttonLogin3 = findViewById(R.id.loginButton3);
 
     }
     private void  addEvents(){
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonLogin3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent menuIntent = new Intent(LoginActivity.this, MenuActivity.class);
