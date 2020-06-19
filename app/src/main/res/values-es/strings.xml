@@ -11,4 +11,5 @@
     <string name="university">Ingrese su Universidad</string>
     <string name="carrer">"Ingrese su carrera "</string>
     <string name="clean">Limpiar</string>
+    <string name="error_empty_variable">El valor %s es requerido</string>
 </resources>

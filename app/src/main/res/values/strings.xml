@@ -11,4 +11,6 @@
     <string name="university">Enter your University</string>
     <string name="carrer">Enter your carrer</string>
     <string name="clean">Clean</string>
+    <string name="error_empty_variable">The value %s is required</string>
+
 </resources>
