@@ -18,6 +18,9 @@
         <activity android:name=".RegisterActivity" >
 
         </activity>
+        <activity android:name=".ContactsActivity" >
+
+        </activity>
         <activity android:name=".InicioActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

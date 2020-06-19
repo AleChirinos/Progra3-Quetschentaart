@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="30"
-        android:background="#F8BBD0">
+        android:background="#EA42A1">
 
         <ImageView
             android:id="@+id/photo_contact"
@@ -22,7 +22,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
-            android:maxHeight="120dp"
+            android:maxHeight="100dp"
             android:src="@drawable/photo1" />
     </FrameLayout>
 
@@ -31,8 +31,9 @@
         android:layout_height="wrap_content"
 
         android:layout_weight="70"
-        android:background="#F8BBD0"
-        android:orientation="vertical">
+        android:background="#EA42A1"
+        android:orientation="vertical"
+        >
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -40,15 +41,18 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:background="#ec407a">
+            android:layout_marginBottom="11dp"
+            android:background="@drawable/rounded_borders_contact_name">
 
             <TextView
                 android:id="@+id/nameTextView"
+                android:layout_marginStart="7dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/adamina"
-                android:textSize="45dp"
-                tools:text="Nombre" />
+                android:textSize="35dp"
+                tools:text="Name"
+                />
         </FrameLayout>
 
         <LinearLayout
@@ -57,25 +61,30 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:background="#f48fb1"
-            android:orientation="horizontal">
+            android:background="@drawable/rounded_borders_contact_career_age"
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:id="@+id/careerTextView"
+                android:layout_marginStart="5dp"
+                android:gravity="start"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="75"
                 android:fontFamily="@font/andada"
-                android:textSize="35dp"
+                android:textSize="25dp"
                 tools:text="Career" />
 
             <TextView
                 android:id="@+id/ageTextView"
+                android:gravity="end"
+                android:layout_marginEnd="5dp"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:fontFamily="@font/andada"
-                android:textSize="35dp"
+                android:textSize="25dp"
                 tools:text="Age" />
         </LinearLayout>
     </LinearLayout>
