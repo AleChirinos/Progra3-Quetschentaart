@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     public static String LOG = RegisterActivity.class.getName();
     private LinearLayout parent;
     private Context context;
+    private ScrollView scrollView;
 
     private TextView nameTextView;
     private EditText nameEditText;
@@ -63,6 +65,12 @@ public class RegisterActivity extends AppCompatActivity {
         parent.setOrientation(LinearLayout.VERTICAL);
         parent.setBackground(getResources().getDrawable(R.drawable.style_form_register));
 
+        scrollView = new ScrollView(context);
+        LinearLayout.LayoutParams scrollViewparams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        scrollView.setBackgroundColor(getResources().getColor(R.color.transparente));
+
         //Name
         nameTextView = new TextView(context);
         nameTextView.setText(getString(R.string.name));
@@ -99,25 +107,25 @@ public class RegisterActivity extends AppCompatActivity {
         parent.addView(emailEditText);
 
         //Code
-        //codeTextView = new TextView(context);
-        //codeTextView.setText(getString(R.string.code));
-        //parent.addView(codeTextView);
-        //codeEditText = new EditText(context);
-        //parent.addView(codeEditText);
+        codeTextView = new TextView(context);
+        codeTextView.setText(getString(R.string.code));
+        parent.addView(codeTextView);
+        codeEditText = new EditText(context);
+        parent.addView(codeEditText);
 
         //University
-        //universityTextView = new TextView(context);
-        //universityTextView.setText(getString(R.string.university));
-        //parent.addView(universityTextView);
-        //universityEditText = new EditText(context);
-        //parent.addView(universityEditText);
+        universityTextView = new TextView(context);
+        universityTextView.setText(getString(R.string.university));
+        parent.addView(universityTextView);
+        universityEditText = new EditText(context);
+        parent.addView(universityEditText);
 
         //Carrer
-        //carrerTextView = new TextView(context);
-        //carrerTextView.setText(getString(R.string.carrer));
-        //parent.addView(carrerTextView);
-        //carrerEditText = new EditText(context);
-        //parent.addView(carrerEditText);
+        carrerTextView = new TextView(context);
+        carrerTextView.setText(getString(R.string.carrer));
+        parent.addView(carrerTextView);
+        carrerEditText = new EditText(context);
+        parent.addView(carrerEditText);
 
         //Buttons
         buttonsLinearLayout = new LinearLayout(context);
@@ -145,7 +153,8 @@ public class RegisterActivity extends AppCompatActivity {
         loginButtonRegister.setLayoutParams(buttonsLayoutParams);
         buttonsLinearLayout.addView(loginButtonRegister);
 
-        parent.addView(buttonsLinearLayout);
+        scrollView.addView(buttonsLinearLayout);
+        parent.addView(scrollView);
         return parent;
     }
 
@@ -159,6 +168,36 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = passwordEditText.getText().toString().trim();
                 String email = passwordEditText.getText().toString().trim();
 
+                if (name.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "name"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (lastname.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "lastname"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (username.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "username"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (password.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "password"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (email.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "email"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(loginIntent);
@@ -172,9 +211,9 @@ public class RegisterActivity extends AppCompatActivity {
                 usernameEditText.setText("");
                 passwordEditText.setText("");
                 emailEditText.setText("");
-                //codeEditText.setText("");
-                //universityEditText.setText("");
-                //carrerEditText.setText("");
+                codeEditText.setText("");
+                universityEditText.setText("");
+                carrerEditText.setText("");
             }
         });
     }

@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 
 public class MenuActivity extends AppCompatActivity {
     public static String LOG = LoginActivity.class.getName();
-    private Button buttonContact;
+    private AppCompatImageButton buttonContact;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +23,6 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
-        buttonContact = findViewById(R.id.contactbutton);
-    }
-
-    private void initViews() {
         buttonContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +30,10 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(menuIntent);
             }
         });
+    }
+
+    private void initViews() {
+        buttonContact = findViewById(R.id.contactbutton);
     }
     @Override
     protected void onStart() {

@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent menuIntent = new Intent(LoginActivity.this, MenuActivity.class);
+                Intent menuIntent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(menuIntent);
             }
         });
