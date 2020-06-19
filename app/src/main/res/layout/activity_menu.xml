@@ -8,11 +8,11 @@
 
     <LinearLayout
         android:id="@+id/controles1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentStart="true"
-        android:background="#322628"
-        android:backgroundTint="#322628"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:orientation="horizontal"
         android:padding="20dp"
         tools:layout_editor_absoluteX="0dp"
@@ -20,9 +20,9 @@
 
         <LinearLayout
             android:id="@+id/controles"
-            android:layout_width="260dp"
-            android:layout_height="fill_parent"
-            android:layout_alignParentStart="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:orientation="vertical"
@@ -70,14 +70,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="260dp"
-            android:layout_height="fill_parent"
-            android:layout_alignParentEnd="true"
+            android:id="@+id/controles3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="#FFFFFF"
-            android:backgroundTint="#FFFFFF"
             android:orientation="vertical"
             android:padding="20dp">
-
 
             <ImageButton
                 android:id="@+id/imageButton5"
@@ -90,6 +89,7 @@
                 android:padding="20dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_random" />
+
             <ImageButton
                 android:id="@+id/imageButton6"
                 android:layout_width="match_parent"
@@ -101,6 +101,7 @@
                 android:padding="20dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_save" />
+
             <ImageButton
                 android:id="@+id/imageButton7"
                 android:layout_width="match_parent"
@@ -112,6 +113,10 @@
                 android:padding="20dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_contact" />
+
+
         </LinearLayout>
+
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -160,8 +160,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String email = passwordEditText.getText().toString().trim();
 
 
-                //Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                //startActivity(loginIntent);
+                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
             }
         });
         cleanButton.setOnClickListener(new View.OnClickListener() {
