@@ -8,12 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.alejandrachirinos.therealcupid.Repository.MenuActivity;
-
 public class LoginActivity extends AppCompatActivity {
 
     public static String LOG = LoginActivity.class.getName();
     private Button buttonLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
