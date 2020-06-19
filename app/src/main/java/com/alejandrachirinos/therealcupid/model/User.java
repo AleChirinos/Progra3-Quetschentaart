@@ -30,7 +30,10 @@ public class User {
     @Expose
     private LinkedList<User> contacts;
 
-    public User(String name, String email, int universityCode, String password, String career, LinkedList<User> contacts) {
+    @Expose
+    private int age;
+
+    public User(String name, String email, int universityCode, String password, String career, LinkedList<User> contacts,int age) {
         this.name = name;
         this.email = email;
         this.UniversityCode = universityCode;
@@ -38,6 +41,7 @@ public class User {
         this.career = career;
         this.aboutMe="";
         this.contacts = contacts;
+        this.age = age;
     }
 
     public String getCareer() {
@@ -94,5 +98,21 @@ public class User {
 
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
+    }
+
+    public LinkedList<User> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(LinkedList<User> contacts) {
+        this.contacts = contacts;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
