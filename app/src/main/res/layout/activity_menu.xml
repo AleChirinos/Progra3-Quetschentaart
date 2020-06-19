@@ -90,8 +90,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_random" />
 
-            <ImageButton
-                android:id="@+id/imageButton6"
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/contactbutton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="5dp"
