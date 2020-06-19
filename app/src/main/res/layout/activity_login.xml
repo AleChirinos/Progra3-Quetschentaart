@@ -16,11 +16,11 @@
         android:orientation="vertical"
         android:background="@drawable/style_form_login"
         android:layout_alignParentBottom="true">
-    <Button
-        android:id="@+id/loginButton3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/login" />
+        <Button
+            android:id="@+id/loginButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login" />
 
     </LinearLayout>
 
@@ -29,7 +29,7 @@
         android:layout_width="500dp"
         android:layout_height="50dp"
         android:text="@string/login"
-         />
+        />
 
     <EditText
         android:id="@+id/editTextTextPassword3"
