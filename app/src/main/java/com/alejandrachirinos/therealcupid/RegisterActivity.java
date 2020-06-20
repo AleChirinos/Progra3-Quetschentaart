@@ -416,6 +416,8 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
+
+
                 int universitycode = 0;
                 try {
                     universitycode = Integer.parseInt(code);
@@ -425,6 +427,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+
                 int ageparse = 0;
                 try {
                     ageparse = Integer.parseInt(age);
