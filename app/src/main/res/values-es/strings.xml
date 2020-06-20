@@ -12,4 +12,8 @@
     <string name="carrer">"Ingrese su carrera "</string>
     <string name="clean">Limpiar</string>
     <string name="error_empty_variable">El valor %s es requerido</string>
+    <string name="gender">¿Cuál es tu genero?</string>
+    <string name="confirmpass">Confirmar contraseña</string>
+    <string name="invalid">"Por favor ingresa un %s valido "</string>
+    <string name="wrongPassword">"Por favor confirme su %s"</string>
 </resources>

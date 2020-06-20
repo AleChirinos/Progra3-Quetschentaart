@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +40,9 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView passwordTextView;
     private EditText passwordEditText;
 
+    private TextView confirmPasswordTextView;
+    private EditText confirmPasswordEditText;
+
     private TextView emailTextView;
     private EditText emailEditText;
 
@@ -48,6 +56,10 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText carrerEditText;
 
     private TextView spaceTextView;
+
+    private TextView genderTextview;
+    private TextView formgender;
+    private RadioGroup genderRadioGroup;
 
     private LinearLayout buttonsLinearLayout;
     private Button loginButtonRegister;
@@ -87,6 +99,15 @@ public class RegisterActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         formLinearLayout.setBackground(getResources().getDrawable(R.drawable.style_form_register));
 
+        //Image
+        ImageView registerImage = new ImageView(context);
+        registerImage.setImageResource(R.drawable.registres);
+        LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(
+              ViewGroup.LayoutParams.MATCH_PARENT,
+              ViewGroup.LayoutParams.MATCH_PARENT);
+        formLinearLayout.addView(registerImage);
+
+
         //Name
         nameTextView = new TextView(context);
         nameTextView.setText(getString(R.string.name));
@@ -120,7 +141,6 @@ public class RegisterActivity extends AppCompatActivity {
         usernameTextView.setTextColor(getResources().getColor(R.color.black));
         usernameEditText = new EditText(context);
         formLinearLayout.addView(usernameEditText);
-        //usernameTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstoprosa));
         usernameEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
 
         spaceTextView = new TextView(context);
@@ -133,9 +153,23 @@ public class RegisterActivity extends AppCompatActivity {
         formLinearLayout.addView(passwordTextView);
         passwordTextView.setTextColor(getResources().getColor(R.color.black));
         passwordEditText = new EditText(context);
+        passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
         formLinearLayout.addView(passwordEditText);
-        //passwordTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstopazul));
         passwordEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
+
+        //Confirm Password
+        confirmPasswordTextView= new TextView(context);
+        confirmPasswordTextView.setText(getString(R.string.confirmpass));
+        formLinearLayout.addView(confirmPasswordTextView);
+        confirmPasswordTextView.setTextColor(getResources().getColor(R.color.black));
+        confirmPasswordEditText = new EditText(context);
+        confirmPasswordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        formLinearLayout.addView(confirmPasswordEditText);
+        confirmPasswordEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
 
         spaceTextView = new TextView(context);
         spaceTextView.setText("");
@@ -148,8 +182,7 @@ public class RegisterActivity extends AppCompatActivity {
         emailTextView.setTextColor(getResources().getColor(R.color.black));
         emailEditText = new EditText(context);
         formLinearLayout.addView(emailEditText);
-        //emailTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstoprosa));
-        emailEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
+        emailEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
 
         spaceTextView = new TextView(context);
         spaceTextView.setText("");
@@ -161,9 +194,9 @@ public class RegisterActivity extends AppCompatActivity {
         formLinearLayout.addView(codeTextView);
         codeTextView.setTextColor(getResources().getColor(R.color.black));
         codeEditText = new EditText(context);
+        codeEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         formLinearLayout.addView(codeEditText);
-        //codeTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstopazul));
-        codeEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+        codeEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
 
         spaceTextView = new TextView(context);
         spaceTextView.setText("");
@@ -176,8 +209,7 @@ public class RegisterActivity extends AppCompatActivity {
         universityTextView.setTextColor(getResources().getColor(R.color.black));
         universityEditText = new EditText(context);
         formLinearLayout.addView(universityEditText);
-        //universityTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstoprosa));
-        universityEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
+        universityEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
 
         spaceTextView = new TextView(context);
         spaceTextView.setText("");
@@ -190,8 +222,30 @@ public class RegisterActivity extends AppCompatActivity {
         carrerTextView.setTextColor(getResources().getColor(R.color.black));
         carrerEditText = new EditText(context);
         formLinearLayout.addView(carrerEditText);
-        //carrerTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstopazul));
-        carrerEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+        carrerEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
+
+        formgender = new TextView(context);
+        formgender.setText(getString(R.string.gender));
+        formLinearLayout.addView(formgender);
+        formgender.setTextColor(getResources().getColor(R.color.black));
+
+        genderTextview = new TextView(context);
+        genderTextview.setText("Gender");
+        genderRadioGroup = new RadioGroup(context);
+        String[] genders = new String[]{"Male", "Female", "Not specified", "Other"};
+        for (int i = 0; i < genders.length; i++) {
+            RadioButton option = new RadioButton(context);
+            option.setId(i);
+            option.setText(genders[i]);
+            genderRadioGroup.addView(option);
+            genderRadioGroup.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+        }
+        genderRadioGroup.check(0);
+        formLinearLayout.addView(genderRadioGroup);
 
         spaceTextView = new TextView(context);
         spaceTextView.setText("");
@@ -239,6 +293,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String lastname = lastnameEditText.getText().toString().trim();
                 String username = usernameEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
+                String confirmPassword = passwordEditText.getText().toString().trim();
                 String email = emailEditText.getText().toString().trim();
                 String code = codeEditText.getText().toString().trim();
                 String university = universityEditText.getText().toString().trim();
@@ -262,9 +317,27 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(username.contains(" ")){
+                    Toast.makeText(context,
+                            getString(R.string.invalid, "username"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (password.isEmpty()) {
                     Toast.makeText(context,
                             getString(R.string.error_empty_variable, "password"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (confirmPassword.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "password"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(confirmPassword != password){
+                    Toast.makeText(context,
+                            getString(R.string.wrongPassword, "password"),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -274,9 +347,21 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    Toast.makeText(context,
+                            getString(R.string.invalid, "email"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (code.isEmpty()) {
                     Toast.makeText(context,
                             getString(R.string.error_empty_variable, "UniversityCode"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!(code.length() == 8 && !code.contains(" "))){
+                    Toast.makeText(context,
+                            getString(R.string.invalid, "university"),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -287,6 +372,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 if (carrer.isEmpty()) {
                     Toast.makeText(context,
                             getString(R.string.error_empty_variable, "carrer"),
