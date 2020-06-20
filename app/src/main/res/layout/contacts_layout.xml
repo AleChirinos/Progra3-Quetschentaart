@@ -8,9 +8,9 @@
 
 
     <ListView
-        android:id="@+id/taskListView"
+        android:id="@+id/contactsListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="#424242"
-        android:dividerHeight="2dp" />
+        android:divider="#e3ecfd"
+        android:dividerHeight="5dp" />
 </RelativeLayout>

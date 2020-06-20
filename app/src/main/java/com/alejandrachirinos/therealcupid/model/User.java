@@ -1,11 +1,15 @@
 package com.alejandrachirinos.therealcupid.model;
 
+import com.alejandrachirinos.therealcupid.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.LinkedList;
 
 public class User {
+    @Expose
+    private long id;
+
     @Expose
     private String name;
 
@@ -33,15 +37,25 @@ public class User {
     @Expose
     private int age;
 
-    public User(String name, String email, int universityCode, String password, String career, LinkedList<User> contacts,int age) {
+    public User(long id, String name, String email, int universityCode, String password, String career, LinkedList<User> contacts, int age) {
+        this.id=id;
         this.name = name;
         this.email = email;
         this.UniversityCode = universityCode;
         this.password = password;
         this.career = career;
-        this.aboutMe="";
+        this.aboutMe = "";
         this.contacts = contacts;
         this.age = age;
+        this.image= R.drawable.default_user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getCareer() {
