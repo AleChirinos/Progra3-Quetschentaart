@@ -375,7 +375,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (!university.contains("UPB")) {
                     Toast.makeText(context,
-                            getString(R.string.error_empty_variable, "university"),
+                            getString(R.string.invalid, "university"),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
