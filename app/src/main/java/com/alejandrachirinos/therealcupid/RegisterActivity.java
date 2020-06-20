@@ -335,7 +335,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(confirmPassword != password){
+                if(!password.equals(confirmPassword)){
                     Toast.makeText(context,
                             getString(R.string.wrongPassword, "password"),
                             Toast.LENGTH_SHORT).show();
@@ -369,6 +369,13 @@ public class RegisterActivity extends AppCompatActivity {
                 if (university.isEmpty()) {
                     Toast.makeText(context,
                             getString(R.string.error_empty_variable, "university"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!university.contains("UPB")) {
+                    Toast.makeText(context,
+                            getString(R.string.invalid, "university"),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
