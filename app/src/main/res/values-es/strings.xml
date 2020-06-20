@@ -16,4 +16,8 @@
     <string name="confirmpass">Confirmar contraseña</string>
     <string name="invalid">"Por favor ingresa un %s valido "</string>
     <string name="wrongPassword">"Por favor confirme su %s"</string>
+    <string name="menu">Menu</string>
+    <string name="contacts">Contactos</string>
+    <string name="barlogin">Ingreso</string>
+    <string name="barregister">Registro</string>
 </resources>

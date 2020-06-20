@@ -16,6 +16,10 @@
     <string name="confirmpass">Confirm password</string>
     <string name="invalid">Please enter a valid %s address</string>
     <string name="wrongPassword">Please confirm your %s</string>
+    <string name="menu">MENU</string>
+    <string name="contacts">Contacts</string>
+    <string name="barlogin">Log in</string>
+    <string name="barregister">Register</string>
 
 
 </resources>
