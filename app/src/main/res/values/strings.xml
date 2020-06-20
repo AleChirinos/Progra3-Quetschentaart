@@ -21,6 +21,8 @@
     <string name="barlogin">Log in</string>
     <string name="barregister">Register</string>
     <string name="age">Enter your age</string>
+    <string name="error_empty">values required</string>
+    <string name="error_incorrectValues">incorrect Values</string>
 
 
 </resources>
