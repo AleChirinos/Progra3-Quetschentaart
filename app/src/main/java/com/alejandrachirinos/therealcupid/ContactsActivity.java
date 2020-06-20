@@ -36,7 +36,7 @@ public class ContactsActivity extends AppCompatActivity {
         context = this;
 
         setContentView(R.layout.contacts_layout);
-        Log.d(LOG, "onCreate");
+        Log.e(LOG, "onCreateContacts");
 
         receiveValues();
         initViews();
@@ -59,37 +59,37 @@ public class ContactsActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(LOG, "onStart");
+        Log.e(LOG, "onStart11111");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(LOG, "onResume");
+        Log.e(LOG, "onResume1111");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(LOG, "onPause");
+        Log.e(LOG, "onPause1111");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(LOG, "onStop");
+        Log.e(LOG, "onStop1111");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(LOG, "onRestart");
+        Log.e(LOG, "onRestart");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(LOG, "onDestroy");
+        Log.e(LOG, "onDestroy");
     }
 
     private void initViews() {
@@ -99,6 +99,7 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
+        Log.e(LOG, "events1");
 
         contactsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -108,9 +109,15 @@ public class ContactsActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+        Log.e(LOG, "events2");
+
     }
 
     private void fillContacts() {
-    items.add(new User(1,"prueba","p@g",50000,"1","Ing",null,20));
+        items.add(new User(1,"prueba","p@g",50000,"1","Ing",null,20));
+
+
+        Log.e(LOG, "fiiiiiil");
+
     }
 }

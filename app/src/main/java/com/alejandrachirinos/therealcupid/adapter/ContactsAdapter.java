@@ -64,7 +64,7 @@ public class ContactsAdapter extends BaseAdapter {
         User user = this.items.get(position);
         viewHolder.nameTextView.setText(user.getName());
         viewHolder.careerTextView.setText(user.getCareer());
-        viewHolder.ageTextView.setText(user.getAge());
+        viewHolder.ageTextView.setText((user.getAge()+""));
         viewHolder.profileImageView.setImageResource(user.getImage());
         return view;
     }

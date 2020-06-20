@@ -26,8 +26,8 @@ public class MenuActivity extends AppCompatActivity {
         buttonContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent menuIntent = new Intent(MenuActivity.this, ContactsActivity.class);
-                startActivity(menuIntent);
+                Intent contactsIntent = new Intent(MenuActivity.this, ContactsActivity.class);
+                startActivity(contactsIntent);
             }
         });
     }

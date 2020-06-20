@@ -5,4 +5,10 @@
     <color name="colorAccent">#9E9E9E</color>
     <color name="fondoBotones">#fce4ec</color>
     <color name="transparente">#00000000</color>
+    <color name="fondopantalla">#bb216a</color>
+    <color name="fondoRegistration">#e3ecfd</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="gendercolor">#ea42a1</color>
+
 </resources>
