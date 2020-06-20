@@ -359,9 +359,9 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (!(code.length() == 8 && !code.contains(" "))){
+                if (!(code.length() == 5 && !code.contains(" "))){
                     Toast.makeText(context,
-                            getString(R.string.invalid, "university"),
+                            getString(R.string.invalid, "code"),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -375,10 +375,11 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (!university.contains("UPB")) {
                     Toast.makeText(context,
-                            getString(R.string.invalid, "university"),
+                            getString(R.string.error_empty_variable, "university"),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
+
 
                 if (carrer.isEmpty()) {
                     Toast.makeText(context,
