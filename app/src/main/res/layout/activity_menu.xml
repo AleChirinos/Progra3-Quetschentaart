@@ -26,9 +26,11 @@
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:orientation="vertical"
-            android:padding="20dp"
+            android:padding="10dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="-5dp">
+
+
 
 
             <ImageButton
@@ -38,8 +40,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:backgroundTint="#890e4f"
-                android:padding="20dp"
+                android:background="@drawable/boton2"
+                android:padding="10dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_profile" />
 
@@ -50,8 +52,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:backgroundTint="#d81a60"
-                android:padding="20dp"
+                android:background="@drawable/boton3"
+                android:padding="10dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_chat" />
 
@@ -62,8 +64,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:backgroundTint="#f06292"
-                android:padding="20dp"
+                android:background="@drawable/boton4"
+                android:padding="10dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_settings" />
 
@@ -76,7 +78,7 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="10dp">
 
             <ImageButton
                 android:id="@+id/imageButton5"
@@ -85,8 +87,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:backgroundTint="#c2175b"
-                android:padding="20dp"
+                android:background="@drawable/boton5"
+                android:padding="10dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_random" />
 
@@ -97,8 +99,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:backgroundTint="#ec407a"
-                android:padding="20dp"
+                android:background="@drawable/boton6"
+                android:padding="10dp"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icono_save" />
 
@@ -109,9 +111,9 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:backgroundTint="#ff80ab"
-                android:padding="20dp"
+                android:background="@drawable/boton7"
                 android:scaleType="fitCenter"
+                android:padding="10dp"
                 app:srcCompat="@drawable/icono_contact" />
 
 
