@@ -55,6 +55,9 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView carrerTextView;
     private EditText carrerEditText;
 
+    private TextView ageTextView;
+    private EditText ageEditText;
+
     private TextView spaceTextView;
 
     private TextView genderTextview;
@@ -228,6 +231,21 @@ public class RegisterActivity extends AppCompatActivity {
         spaceTextView.setText("");
         formLinearLayout.addView(spaceTextView);
 
+        //Age
+        ageTextView = new TextView(context);
+        ageTextView.setText(getString(R.string.age));
+        formLinearLayout.addView(ageTextView);
+        ageTextView.setTextColor(getResources().getColor(R.color.black));
+        ageEditText = new EditText(context);
+        ageEditText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
+        formLinearLayout.addView(ageEditText);
+        ageEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
+
+        //Gender
         formgender = new TextView(context);
         formgender.setText(getString(R.string.gender));
         formLinearLayout.addView(formgender);
@@ -242,7 +260,7 @@ public class RegisterActivity extends AppCompatActivity {
             option.setId(i);
             option.setText(genders[i]);
             genderRadioGroup.addView(option);
-            genderRadioGroup.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+            genderRadioGroup.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
         }
         genderRadioGroup.check(0);
         formLinearLayout.addView(genderRadioGroup);
@@ -298,6 +316,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String code = codeEditText.getText().toString().trim();
                 String university = universityEditText.getText().toString().trim();
                 String carrer = carrerEditText.getText().toString().trim();
+                String age = carrerEditText.getText().toString().trim();
 
                 if (name.isEmpty()) {
                     Toast.makeText(context,
@@ -384,6 +403,13 @@ public class RegisterActivity extends AppCompatActivity {
                 if (carrer.isEmpty()) {
                     Toast.makeText(context,
                             getString(R.string.error_empty_variable, "carrer"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (age.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "age"),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
