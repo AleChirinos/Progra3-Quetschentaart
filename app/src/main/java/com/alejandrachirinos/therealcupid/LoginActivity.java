@@ -50,8 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                     editTextTextPassword3.setError(getString(R.string.error_incorrectValues));
                     return;
                 }
-                UserRepository repository = new UserRepository();
-                User userLogged = repository.Login(username, password);
+
+                User userLogged = UserRepository.getInstance().Login(username, password);
                 if (userLogged == null){
                     Toast.makeText(LoginActivity.this,getString(R.string.error_incorrectValues), Toast.LENGTH_SHORT).show();
                     return;

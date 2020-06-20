@@ -7,11 +7,15 @@ import com.google.gson.annotations.SerializedName;
 import java.util.LinkedList;
 
 public class User {
-    @Expose
-    private long id;
 
     @Expose
     private String name;
+
+    @Expose
+    private String lastname;
+
+    @Expose
+    private String username;
 
     @Expose
     private String email;
@@ -37,9 +41,10 @@ public class User {
     @Expose
     private int age;
 
-    public User(long id, String name, String email, int universityCode, String password, String career, LinkedList<User> contacts, int age) {
-        this.id=id;
+    public User(String name, String lastname, String username, String email, int universityCode, String password, String career, LinkedList<User> contacts, int age) {
         this.name = name;
+        this.lastname = lastname;
+        this.username = username;
         this.email = email;
         this.UniversityCode = universityCode;
         this.password = password;
@@ -48,14 +53,6 @@ public class User {
         this.contacts = contacts;
         this.age = age;
         this.image= R.drawable.default_user;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getCareer() {
@@ -129,4 +126,12 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public String getLastname() { return lastname; }
+
+    public void setLastname(String lastname) { this.lastname = lastname; }
+
+    public String getUsername() { return username; }
+
+    public void setUsername(String username) { this.username = username; }
 }

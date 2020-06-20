@@ -23,4 +23,5 @@
     <string name="age">"Ingrese su edad "</string>
     <string name="error_empty">valores requeridos</string>
     <string name="error_incorrectValues">valores Incorrectos</string>
+    <string name="next">Siguiente</string>
 </resources>

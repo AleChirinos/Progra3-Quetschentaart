@@ -23,6 +23,7 @@
     <string name="age">Enter your age</string>
     <string name="error_empty">values required</string>
     <string name="error_incorrectValues">incorrect Values</string>
+    <string name="next">Next</string>
 
 
 </resources>

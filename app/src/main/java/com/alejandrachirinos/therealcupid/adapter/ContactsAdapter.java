@@ -34,7 +34,7 @@ public class ContactsAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return items.get(position).getId();
+        return items.get(position).getUniversityCode();
     }
 
     @Override

@@ -21,6 +21,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alejandrachirinos.therealcupid.model.User;
+
 public class RegisterActivity extends AppCompatActivity {
 
     public static String LOG = RegisterActivity.class.getName();
@@ -65,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
     private RadioGroup genderRadioGroup;
 
     private LinearLayout buttonsLinearLayout;
-    private Button loginButtonRegister;
+    private Button next;
     private Button cleanButton;
 
     @Override
@@ -254,7 +256,7 @@ public class RegisterActivity extends AppCompatActivity {
         genderTextview = new TextView(context);
         genderTextview.setText("Gender");
         genderRadioGroup = new RadioGroup(context);
-        String[] genders = new String[]{"Male", "Female", "Not specified", "Other"};
+        String[] genders = new String[]{"Male", "Female", "Other"};
         for (int i = 0; i < genders.length; i++) {
             RadioButton option = new RadioButton(context);
             option.setId(i);
@@ -291,10 +293,10 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         // Button Login
-        loginButtonRegister = new Button(context);
-        loginButtonRegister.setText(getString(R.string.login));
-        loginButtonRegister.setLayoutParams(buttonsLayoutParams);
-        buttonsLinearLayout.addView(loginButtonRegister);
+        next = new Button(context);
+        next.setText(getString(R.string.next));
+        next.setLayoutParams(buttonsLayoutParams);
+        buttonsLinearLayout.addView(next);
 
 
         formLinearLayout.addView(buttonsLinearLayout);
@@ -304,7 +306,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void addEvents(){
-        loginButtonRegister.setOnClickListener(new View.OnClickListener() {
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = nameEditText.getText().toString().trim();
@@ -414,7 +416,28 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                int universitycode = 0;
+                try {
+                    universitycode = Integer.parseInt(code);
+                } catch (Exception ex) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                int ageparse = 0;
+                try {
+                    ageparse = Integer.parseInt(age);
+                } catch (Exception ex) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                User objUser = new User(name, lastname, username, email, universitycode, password, carrer, null,  ageparse);
+
+                Intent loginIntent = new Intent(RegisterActivity.this, MenuActivity.class);
                 startActivity(loginIntent);
             }
         });
