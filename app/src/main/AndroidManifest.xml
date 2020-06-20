@@ -14,7 +14,7 @@
         <activity android:name=".LoginActivity">
 
         </activity>
-        <activity android:name=".MenuActivity">
+        <activity android:name=".InicioActivity">
 
         </activity>
         <activity android:name=".RegisterActivity" >
@@ -23,7 +23,7 @@
         <activity android:name=".ContactsActivity" >
 
         </activity>
-        <activity android:name=".InicioActivity" >
+        <activity android:name=".MenuActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
