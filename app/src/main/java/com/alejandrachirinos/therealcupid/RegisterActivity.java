@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -46,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView carrerTextView;
     private EditText carrerEditText;
 
+    private TextView spaceTextView;
+
     private LinearLayout buttonsLinearLayout;
     private Button loginButtonRegister;
     private Button cleanButton;
@@ -61,71 +64,138 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
     private View render(){
+        //Parent
         parent = new LinearLayout(RegisterActivity.this);
         parent.setOrientation(LinearLayout.VERTICAL);
-        parent.setBackground(getResources().getDrawable(R.drawable.style_form_register));
+        LinearLayout.LayoutParams parentparams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        parent.setBackground(getResources().getDrawable(R.drawable.style_form_backgraund));
 
+        //ScrollView
         scrollView = new ScrollView(context);
         LinearLayout.LayoutParams scrollViewparams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
         scrollView.setBackgroundColor(getResources().getColor(R.color.transparente));
+
+        //Formulario Layout
+        LinearLayout formLinearLayout = new LinearLayout(context);
+        formLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        ScrollView.LayoutParams formLayoutParams = new ScrollView.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        formLinearLayout.setBackground(getResources().getDrawable(R.drawable.style_form_register));
 
         //Name
         nameTextView = new TextView(context);
         nameTextView.setText(getString(R.string.name));
-        parent.addView(nameTextView);
+        formLinearLayout.addView(nameTextView);
+        nameTextView.setTextColor(getResources().getColor(R.color.black));
         nameEditText = new EditText(context);
-        parent.addView(nameEditText);
+        formLinearLayout.addView(nameEditText);
+        nameEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //Lastname
         lastnameTextView = new TextView(context);
         lastnameTextView.setText(getString(R.string.lastname));
-        parent.addView(lastnameTextView);
+        formLinearLayout.addView(lastnameTextView);
+        lastnameTextView.setTextColor(getResources().getColor(R.color.black));
         lastnameEditText = new EditText(context);
-        parent.addView(lastnameEditText);
+        formLinearLayout.addView(lastnameEditText);
+        lastnameEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //Username
         usernameTextView = new TextView(context);
         usernameTextView.setText(getString(R.string.username));
-        parent.addView(usernameTextView);
+        formLinearLayout.addView(usernameTextView);
+        usernameTextView.setTextColor(getResources().getColor(R.color.black));
         usernameEditText = new EditText(context);
-        parent.addView(usernameEditText);
+        formLinearLayout.addView(usernameEditText);
+        //usernameTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstoprosa));
+        usernameEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //Password
         passwordTextView = new TextView(context);
         passwordTextView.setText(getString(R.string.password));
-        parent.addView(passwordTextView);
+        formLinearLayout.addView(passwordTextView);
+        passwordTextView.setTextColor(getResources().getColor(R.color.black));
         passwordEditText = new EditText(context);
-        parent.addView(passwordEditText);
+        formLinearLayout.addView(passwordEditText);
+        //passwordTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstopazul));
+        passwordEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //Email
         emailTextView = new TextView(context);
         emailTextView.setText(getString(R.string.email));
-        parent.addView(emailTextView);
+        formLinearLayout.addView(emailTextView);
+        emailTextView.setTextColor(getResources().getColor(R.color.black));
         emailEditText = new EditText(context);
-        parent.addView(emailEditText);
+        formLinearLayout.addView(emailEditText);
+        //emailTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstoprosa));
+        emailEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //Code
         codeTextView = new TextView(context);
         codeTextView.setText(getString(R.string.code));
-        parent.addView(codeTextView);
+        formLinearLayout.addView(codeTextView);
+        codeTextView.setTextColor(getResources().getColor(R.color.black));
         codeEditText = new EditText(context);
-        parent.addView(codeEditText);
+        formLinearLayout.addView(codeEditText);
+        //codeTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstopazul));
+        codeEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //University
         universityTextView = new TextView(context);
         universityTextView.setText(getString(R.string.university));
-        parent.addView(universityTextView);
+        formLinearLayout.addView(universityTextView);
+        universityTextView.setTextColor(getResources().getColor(R.color.black));
         universityEditText = new EditText(context);
-        parent.addView(universityEditText);
+        formLinearLayout.addView(universityEditText);
+        //universityTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstoprosa));
+        universityEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonrosa));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //Carrer
         carrerTextView = new TextView(context);
         carrerTextView.setText(getString(R.string.carrer));
-        parent.addView(carrerTextView);
+        formLinearLayout.addView(carrerTextView);
+        carrerTextView.setTextColor(getResources().getColor(R.color.black));
         carrerEditText = new EditText(context);
-        parent.addView(carrerEditText);
+        formLinearLayout.addView(carrerEditText);
+        //carrerTextView.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstopazul));
+        carrerEditText.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonsbottonazul));
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //Buttons
         buttonsLinearLayout = new LinearLayout(context);
@@ -134,7 +204,7 @@ public class RegisterActivity extends AppCompatActivity {
         LinearLayout.LayoutParams buttonLayoutParam = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        buttonsLinearLayout.setBackgroundColor(getResources().getColor(R.color.fondoBotones));
+        buttonsLinearLayout.setBackground(getResources().getDrawable(R.drawable.style_form_backbuttonstoprosa));
 
         LinearLayout.LayoutParams buttonsLayoutParams = new LinearLayout.LayoutParams(
                 0,
@@ -147,13 +217,16 @@ public class RegisterActivity extends AppCompatActivity {
         cleanButton.setLayoutParams(buttonsLayoutParams);
         buttonsLinearLayout.addView(cleanButton);
 
+
         // Button Login
         loginButtonRegister = new Button(context);
         loginButtonRegister.setText(getString(R.string.login));
         loginButtonRegister.setLayoutParams(buttonsLayoutParams);
         buttonsLinearLayout.addView(loginButtonRegister);
 
-        scrollView.addView(buttonsLinearLayout);
+
+        formLinearLayout.addView(buttonsLinearLayout);
+        scrollView.addView(formLinearLayout);
         parent.addView(scrollView);
         return parent;
     }
@@ -166,7 +239,10 @@ public class RegisterActivity extends AppCompatActivity {
                 String lastname = lastnameEditText.getText().toString().trim();
                 String username = usernameEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
-                String email = passwordEditText.getText().toString().trim();
+                String email = emailEditText.getText().toString().trim();
+                String code = codeEditText.getText().toString().trim();
+                String university = universityEditText.getText().toString().trim();
+                String carrer = carrerEditText.getText().toString().trim();
 
                 if (name.isEmpty()) {
                     Toast.makeText(context,
@@ -195,6 +271,25 @@ public class RegisterActivity extends AppCompatActivity {
                 if (email.isEmpty()) {
                     Toast.makeText(context,
                             getString(R.string.error_empty_variable, "email"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (code.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "UniversityCode"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (university.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "university"),
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (carrer.isEmpty()) {
+                    Toast.makeText(context,
+                            getString(R.string.error_empty_variable, "carrer"),
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
