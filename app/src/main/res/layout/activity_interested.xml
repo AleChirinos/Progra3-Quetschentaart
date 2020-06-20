@@ -42,7 +42,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/seekbar"
                 android:backgroundTint="#89A3BC"
-                android:progressDrawable="#E3ECFD"
+                android:progressDrawable="@drawable/fondo_inte"
                 android:progressTint="#E3ECFD"
                 android:secondaryProgressTint="#325F89"
                 android:thumbTint="#EA42A1" />
