@@ -1,5 +1,6 @@
 package com.alejandrachirinos.therealcupid.model;
 
+import com.alejandrachirinos.therealcupid.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -46,6 +47,7 @@ public class User {
         this.aboutMe = "";
         this.contacts = contacts;
         this.age = age;
+        this.image= R.drawable.default_user;
     }
 
     public long getId() {

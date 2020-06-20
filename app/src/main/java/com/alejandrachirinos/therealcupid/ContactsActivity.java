@@ -111,6 +111,6 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     private void fillContacts() {
-
+    items.add(new User(1,"prueba","p@g",50000,"1","Ing",null,20));
     }
 }
