@@ -24,6 +24,7 @@ public class ContactsActivity extends AppCompatActivity {
     public static String LOG = MenuActivity.class.getName();
 
     private Context context;
+    private User user;
     private List<User> items = new ArrayList<>();
 
     private Button addButton;
@@ -51,7 +52,7 @@ public class ContactsActivity extends AppCompatActivity {
 
             String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
 
-            User user = new Gson().fromJson(userObj, User.class);
+            user = new Gson().fromJson(userObj, User.class);
 
         }
     }
@@ -114,10 +115,15 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     private void fillContacts() {
-        items.add(new User("prueba","prueba","p@g","ale@gmail.com",1,"Ing","sis", null, 20));
-
+        items.add(new User("prueba","prueba","prueba","p@g",50000,"abc","sistemas",null, 20));
+        if(user != null && user.getContacts()!=null) {
+            for (User e : user.getContacts()) {
+                items.add(e);
+            }
+        }
 
         Log.e(LOG, "fiiiiiil");
 
     }
+
 }

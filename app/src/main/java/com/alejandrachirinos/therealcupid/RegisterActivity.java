@@ -318,7 +318,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String code = codeEditText.getText().toString().trim();
                 String university = universityEditText.getText().toString().trim();
                 String carrer = carrerEditText.getText().toString().trim();
-                String age = carrerEditText.getText().toString().trim();
+                String age = ageEditText.getText().toString().trim();
 
                 if (name.isEmpty()) {
                     Toast.makeText(context,
