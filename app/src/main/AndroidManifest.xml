@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alejandrachirinos.therealcupid"
-    xmlns:dist="http://schemas.android.com/apk/distribution">
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.alejandrachirinos.therealcupid">
 
     <dist:module dist:instant="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,36 +12,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".LoginActivity"
-            android:label="@string/barlogin">
-        </activity>
-
-        <activity android:name=".MenuActivity"
-            android:label="@string/menu">
-        </activity>
-
-        <activity android:name=".RegisterActivity"
-            android:label="@string/barregister">
-        </activity>
-
-        <activity android:name=".ContactsActivity"
-            android:label="@string/contacts">
-        </activity>
-
-        <activity android:name=".InicioActivity"
+        <activity android:name=".prueba"></activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/barlogin"></activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/menu"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/barregister"></activity>
+        <activity
+            android:name=".ContactsActivity"
+            android:label="@string/contacts"></activity>
+        <activity
+            android:name=".InicioActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
 </manifest>

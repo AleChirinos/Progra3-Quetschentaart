@@ -1,124 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
+
     <LinearLayout
-        android:id="@+id/controles1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
-        android:orientation="horizontal"
-        android:padding="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-5dp">
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/controles"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/controles1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:padding="10dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="-5dp">
 
-
-
-
-            <ImageButton
-                android:id="@+id/imageButton2"
+            <LinearLayout
+                android:id="@+id/controles"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/boton2"
+                android:background="#FFFFFF"
+                android:backgroundTint="#FFFFFF"
+                android:orientation="vertical"
                 android:padding="10dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icono_profile" />
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="-5dp">
 
-            <ImageButton
-                android:id="@+id/imageButton3"
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/boton2"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icono_profile" />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/boton3"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icono_chat" />
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/boton4"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icono_settings" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/controles3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/boton3"
-                android:padding="10dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icono_chat" />
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/boton4"
-                android:padding="10dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icono_settings" />
+                <ImageButton
+                    android:id="@+id/imageButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/boton5"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icono_random" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/contactbutton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/boton6"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icono_save" />
+
+                <ImageButton
+                    android:id="@+id/imageButton7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/boton7"
+                    android:padding="10dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icono_contact"/>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/controles3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#FFFFFF"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <ImageButton
-                android:id="@+id/imageButton5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/boton5"
-                android:padding="10dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icono_random" />
-
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/contactbutton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/boton6"
-                android:padding="10dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icono_save" />
-
-            <ImageButton
-                android:id="@+id/imageButton7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:background="@drawable/boton7"
-                android:scaleType="fitCenter"
-                android:padding="10dp"
-                app:srcCompat="@drawable/icono_contact" />
-
-
-        </LinearLayout>
-
     </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
