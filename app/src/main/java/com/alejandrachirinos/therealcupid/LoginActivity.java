@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.alejandrachirinos.therealcupid.Repository.UserRepository;
 import com.alejandrachirinos.therealcupid.model.User;
+import com.alejandrachirinos.therealcupid.utils.Constants;
+import com.google.gson.Gson;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -58,6 +60,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 Intent menuIntent = new Intent(LoginActivity.this, MenuActivity.class);
+
+                String userString = new Gson().toJson(userLogged);
+                Log.e("user", userString);
+                menuIntent.putExtra(Constants.INTENT_KEY_USER, userString);
                 startActivity(menuIntent);
             }
         });

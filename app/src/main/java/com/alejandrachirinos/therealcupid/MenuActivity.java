@@ -5,9 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
+
+import com.alejandrachirinos.therealcupid.model.User;
+import com.alejandrachirinos.therealcupid.utils.Constants;
+import com.google.gson.Gson;
 
 public class MenuActivity extends AppCompatActivity {
     public static String LOG = LoginActivity.class.getName();
@@ -35,6 +40,19 @@ public class MenuActivity extends AppCompatActivity {
     private void initViews() {
         buttonContact = findViewById(R.id.contactbutton);
     }
+
+    private void receiveValues() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(Constants.INTENT_KEY_USER)) {
+            String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
+            User user = new Gson().fromJson(userObj, User.class);
+            Toast.makeText(MenuActivity.this,
+                    "Bienvenid@: " + user.getName(),
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
