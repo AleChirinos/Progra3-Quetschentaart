@@ -2,7 +2,7 @@
     <string name="app_name">El verdadero cupido</string>
     <string name="login">Ingresar</string>
     <string name="register">Registrar</string>
-    <string name="name">Ingrese su nombre</string>
+    <string name="name">Ingrese el nombre</string>
     <string name="lastname">Ingrese su apellido</string>
     <string name="username">Ingrese su usuario</string>
     <string name="password">"Ingrese su contraseña "</string>
@@ -20,8 +20,11 @@
     <string name="contacts">Contactos</string>
     <string name="barlogin">Ingreso</string>
     <string name="barregister">Registro</string>
-    <string name="age">"Ingrese su edad "</string>
     <string name="error_empty">valores requeridos</string>
     <string name="error_incorrectValues">valores Incorrectos</string>
+    <string name="age">Rango de edad</string>
+    <string name="people_interest">Genero</string>
+    <string name="done">Hecho</string>
+
     <string name="next">Siguiente</string>
 </resources>
