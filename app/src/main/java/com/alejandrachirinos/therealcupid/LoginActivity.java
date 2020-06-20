@@ -60,10 +60,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 Intent menuIntent = new Intent(LoginActivity.this, MenuActivity.class);
-
                 String userString = new Gson().toJson(userLogged);
-                Log.e("user", userString);
                 menuIntent.putExtra(Constants.INTENT_KEY_USER, userString);
+
                 startActivity(menuIntent);
             }
         });

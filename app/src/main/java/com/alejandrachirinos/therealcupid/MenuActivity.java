@@ -17,21 +17,42 @@ import com.google.gson.Gson;
 public class MenuActivity extends AppCompatActivity {
     public static String LOG = LoginActivity.class.getName();
     private AppCompatImageButton buttonContact;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         Log.e(LOG, "onCreate");
+        receiveValues();
         initViews();
         addEvents();
     }
+
+    private void receiveValues() {
+        //canal
+        Intent intent = getIntent();
+
+        //"objUser"
+        if (intent.hasExtra(Constants.INTENT_KEY_USER)) {
+
+            //ensaje con la clave: "objUser"
+            String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
+
+            //Convertir el String a un Objeto
+            user = new Gson().fromJson(userObj, User.class);
+
+        }
+    }
+
 
     private void addEvents() {
         buttonContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent contactsIntent = new Intent(MenuActivity.this, ContactsActivity.class);
+                String userString = new Gson().toJson(user);
+                contactsIntent.putExtra(Constants.INTENT_KEY_USER, userString);
                 startActivity(contactsIntent);
             }
         });
@@ -41,23 +62,10 @@ public class MenuActivity extends AppCompatActivity {
         buttonContact = findViewById(R.id.contactbutton);
     }
 
-    private void receiveValues() {
-        Intent intent = getIntent();
-        if (intent.hasExtra(Constants.INTENT_KEY_USER)) {
-            String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
-            User user = new Gson().fromJson(userObj, User.class);
-            Toast.makeText(MenuActivity.this,
-                    "Bienvenid@: " + user.getName(),
-                    Toast.LENGTH_SHORT)
-                    .show();
-        }
-    }
-
-
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e(LOG,"onStart");
+        Log.e(LOG, "onStart");
     }
 
     @Override

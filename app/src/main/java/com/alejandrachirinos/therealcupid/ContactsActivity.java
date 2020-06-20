@@ -53,7 +53,10 @@ public class ContactsActivity extends AppCompatActivity {
             String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
 
             user = new Gson().fromJson(userObj, User.class);
-
+            Toast.makeText(ContactsActivity.this, //Origen
+                    "Bienvenid@: " + user.getName(), //Mensaje
+                    Toast.LENGTH_SHORT) //Duracion
+                    .show();
         }
     }
 

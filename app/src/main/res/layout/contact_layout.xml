@@ -4,7 +4,7 @@
     android:id="@+id/parentContactLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#EA42A1"
     android:orientation="horizontal">
 
     <FrameLayout
@@ -14,9 +14,10 @@
         android:background="#EA42A1">
 
         <ImageView
+            android:layout_gravity="center"
             android:id="@+id/photo_contact"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"

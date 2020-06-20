@@ -31,7 +31,8 @@ public class User {
 
     @Expose
     private int image;
-
+    @Expose
+    private String Interest;
     @Expose
     private String aboutMe;
 
@@ -41,7 +42,16 @@ public class User {
     @Expose
     private int age;
 
-    public User(String name, String lastname, String username, String email, int universityCode, String password, String career, LinkedList<User> contacts, int age) {
+    public String getInterest() {
+        return Interest;
+    }
+
+    public void setInterest(String interest) {
+        Interest = interest;
+    }
+
+    public User(String name, String lastname, String username, String email, int universityCode, String password, String career,
+                LinkedList<User> contacts, int age) {
         this.name = name;
         this.lastname = lastname;
         this.username = username;
@@ -52,7 +62,8 @@ public class User {
         this.aboutMe = "";
         this.contacts = contacts;
         this.age = age;
-        this.image= R.drawable.default_user;
+        this.image = R.drawable.default_user;
+        Interest = "";
     }
 
     public String getCareer() {
@@ -127,11 +138,25 @@ public class User {
         this.age = age;
     }
 
-    public String getLastname() { return lastname; }
+    public void addContact(User user) {
+        if (contacts != null) {
+            contacts.add(user);
+        }
+    }
 
-    public void setLastname(String lastname) { this.lastname = lastname; }
+    public String getLastname() {
+        return lastname;
+    }
 
-    public String getUsername() { return username; }
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-    public void setUsername(String username) { this.username = username; }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
