@@ -24,7 +24,6 @@ public class WRUInterestedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_interested);
         initViews();
         addEvents();
-
     }
 
     private void addEvents() {
