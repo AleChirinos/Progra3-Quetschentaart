@@ -21,7 +21,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alejandrachirinos.therealcupid.Repository.UserRepository;
 import com.alejandrachirinos.therealcupid.model.User;
+
+import java.util.LinkedList;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -442,10 +445,11 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                User objUser = new User(name, lastname, username, email, universitycode, password, carrer, null,  ageparse);
+                User objUser = new User(name, lastname, username, email, universitycode, password, carrer, new LinkedList<User>(),  ageparse);
+                UserRepository.getInstance().register(objUser);
 
-                Intent loginIntent = new Intent(RegisterActivity.this, WRUInterestedActivity.class);
-                startActivity(loginIntent);
+                Intent WRUInterestedIntent = new Intent(RegisterActivity.this, WRUInterestedActivity.class);
+                startActivity(WRUInterestedIntent);
             }
         });
         cleanButton.setOnClickListener(new View.OnClickListener() {

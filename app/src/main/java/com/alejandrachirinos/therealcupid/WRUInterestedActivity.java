@@ -6,10 +6,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSeekBar;
+
+import com.alejandrachirinos.therealcupid.Repository.UserRepository;
+import com.alejandrachirinos.therealcupid.model.User;
+import com.alejandrachirinos.therealcupid.utils.Constants;
+import com.google.gson.Gson;
 
 public class WRUInterestedActivity extends AppCompatActivity {
 

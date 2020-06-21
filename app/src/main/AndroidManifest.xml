@@ -25,6 +25,8 @@
         <activity
             android:name=".ContactsActivity"
             android:label="@string/contacts"></activity>
+        <activity android:name=".WRUInterestedActivity"
+            android:label="Interests"/>
         <activity
             android:name=".InicioActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

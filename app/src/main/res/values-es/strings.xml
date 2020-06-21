@@ -27,4 +27,5 @@
     <string name="done">Hecho</string>
     <string name="next">Siguiente</string>
     <string name="remember">Recuerdame</string>
+    <string name="temporal_message_contacts">"Pronto podrás ver el perfil de: "</string>
 </resources>

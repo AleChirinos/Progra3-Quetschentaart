@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alejandrachirinos.therealcupid.adapter.ContactsAdapter;
@@ -53,10 +55,7 @@ public class ContactsActivity extends AppCompatActivity {
             String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
 
             user = new Gson().fromJson(userObj, User.class);
-            Toast.makeText(ContactsActivity.this, //Origen
-                    "Bienvenid@: " + user.getName(), //Mensaje
-                    Toast.LENGTH_SHORT) //Duracion
-                    .show();
+
         }
     }
 
@@ -109,8 +108,10 @@ public class ContactsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 User contact = items.get(position);
-                items.clear();
-                adapter.notifyDataSetChanged();
+                Toast.makeText(ContactsActivity.this, //Origen
+                        getString(R.string.temporal_message_contacts) + contact.getName(), //Mensaje
+                        Toast.LENGTH_SHORT) //Duracion
+                        .show();
             }
         });
         Log.e(LOG, "events2");
