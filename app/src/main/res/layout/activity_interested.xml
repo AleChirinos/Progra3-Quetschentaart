@@ -27,40 +27,38 @@
                 android:layout_weight="1"
                 android:background="@drawable/fondo_interes"
                 android:gravity="center"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:text="@string/age"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF"
-                android:textSize="28sp"/>
+                android:textSize="20sp" />
 
-            <SeekBar
-                android:id="@+id/seekBar"
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/demoseekBar"
                 android:layout_width="283dp"
-                android:layout_height="15dp"
+                android:layout_height="10dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/seekbar"
-                android:backgroundTint="#89A3BC"
-                android:progressDrawable="@drawable/fondo_inte"
-                android:progressTint="#E3ECFD"
-                android:secondaryProgressTint="#325F89"
-                android:thumbTint="#EA42A1" />
+                android:progress="17"
+                android:progressTint="#325F89"
+                android:secondaryProgressTint="#E3ECFD"
+                android:thumbTint="#1FC1B2" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="170dp"
+                android:layout_width="133dp"
                 android:layout_height="10dp"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo_interes"
                 android:gravity="center"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:text="@string/people_interest"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
