@@ -27,12 +27,12 @@
                 android:layout_weight="1"
                 android:background="@drawable/fondo_interes"
                 android:gravity="center"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:text="@string/age"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF"
-                android:textSize="28sp"/>
+                android:textSize="28sp" />
 
             <SeekBar
                 android:id="@+id/seekBar"
@@ -55,7 +55,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/fondo_interes"
                 android:gravity="center"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:text="@string/people_interest"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
