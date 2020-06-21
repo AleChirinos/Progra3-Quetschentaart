@@ -25,6 +25,6 @@
     <string name="age">Rango de edad</string>
     <string name="people_interest">Genero</string>
     <string name="done">Hecho</string>
-
     <string name="next">Siguiente</string>
+    <string name="remember">Recuerdame</string>
 </resources>
