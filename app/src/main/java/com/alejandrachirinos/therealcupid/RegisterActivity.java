@@ -112,6 +112,9 @@ public class RegisterActivity extends AppCompatActivity {
               ViewGroup.LayoutParams.MATCH_PARENT);
         formLinearLayout.addView(registerImage);
 
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
 
         //Name
         nameTextView = new TextView(context);
@@ -441,7 +444,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 User objUser = new User(name, lastname, username, email, universitycode, password, carrer, null,  ageparse);
 
-                Intent loginIntent = new Intent(RegisterActivity.this, MenuActivity.class);
+                Intent loginIntent = new Intent(RegisterActivity.this, WRUInterestedActivity.class);
                 startActivity(loginIntent);
             }
         });
