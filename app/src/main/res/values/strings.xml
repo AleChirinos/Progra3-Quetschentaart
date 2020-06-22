@@ -7,7 +7,7 @@
     <string name="username">Enter your username</string>
     <string name="password">Enter your password</string>
     <string name="email">Enter your email</string>
-    <string name="code">Enter your University Code</string>
+    <string name="code">Enter your university code</string>
     <string name="university">Enter your University</string>
     <string name="carrer">Enter your carrer</string>
     <string name="clean">Clean</string>
@@ -22,7 +22,7 @@
     <string name="barregister">Register</string>
     <string name="error_empty">values required</string>
     <string name="error_incorrectValues">incorrect Values</string>
-    <string name="age">Age range</string>
+    <string name="age">Age</string>
     <string name="people_interest">Gender</string>
     <string name="done">Done</string>
     <string name="next">Next</string>

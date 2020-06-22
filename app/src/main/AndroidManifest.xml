@@ -3,7 +3,8 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.alejandrachirinos.therealcupid">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.hardware.Camera" android:required="true"/>
 
     <dist:module dist:instant="true" />
@@ -15,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name="app.horses.camera.ui.activity.TakeActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/barlogin"></activity>
