@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatSeekBar;
 
 import com.alejandrachirinos.therealcupid.Repository.UserRepository;
@@ -21,8 +22,10 @@ public class WRUInterestedActivity extends AppCompatActivity {
 
     public static String LOG = LoginActivity.class.getName();
     private AppCompatSeekBar demoseekBar;
-
     private Button donebutton;
+    private AppCompatImageButton buttonMujer;
+    private AppCompatImageButton buttonAmbos;
+    private AppCompatImageButton buttonHombre;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,17 +54,33 @@ public class WRUInterestedActivity extends AppCompatActivity {
             }
         });
 
-        donebutton.setOnClickListener(new View.OnClickListener() {
+        buttonMujer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent doneIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
-                startActivity(doneIntent);
+                Intent mujerIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
+                startActivity(mujerIntent);
+            }
+        });
+        buttonAmbos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ambosIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
+                startActivity(ambosIntent);
+            }
+        });
+        buttonHombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent hombreIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
+                startActivity(hombreIntent);
             }
         });
     }
 
     private void initViews() {
         demoseekBar=findViewById(R.id.demoseekBar);
-        donebutton = findViewById(R.id.button);
+        buttonMujer = findViewById(R.id.mujer);
+        buttonAmbos = findViewById(R.id.ambos);
+        buttonHombre = findViewById(R.id.hombre);
     }
 }

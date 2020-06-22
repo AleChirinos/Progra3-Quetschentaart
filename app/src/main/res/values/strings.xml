@@ -30,6 +30,8 @@
     <string name="temporal_message_contacts">"Soon you will be able to see the profile of: "</string>
     <string name="profile">Profile</string>
     <string name="usernameProfile">Username</string>
+    <string name="Age1">Age</string>
+    <string name="career1">Carrer</string>
 
 
 </resources>
