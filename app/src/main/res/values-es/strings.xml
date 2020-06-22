@@ -29,4 +29,5 @@
     <string name="remember">Recuerdame</string>
     <string name="temporal_message_contacts">"Pronto podrás ver el perfil de: "</string>
     <string name="profile">Perfil</string>
+    <string name="usernameProfile">Usuario</string>
 </resources>
