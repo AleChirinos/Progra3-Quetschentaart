@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.alejandrachirinos.therealcupid.Repository.UserRepository;
 import com.alejandrachirinos.therealcupid.model.User;
+import com.alejandrachirinos.therealcupid.utils.Constants;
+import com.google.gson.Gson;
 
 import java.util.LinkedList;
 
@@ -445,10 +447,12 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                User objUser = new User(name, lastname, username, email, universitycode, password, carrer, new LinkedList<User>(),  ageparse);
-                UserRepository.getInstance().register(objUser);
-
+                User user = new User(name, lastname, username, email, universitycode, password, carrer, new LinkedList<User>(),  ageparse);
+                String userString = new Gson().toJson(user);
                 Intent WRUInterestedIntent = new Intent(RegisterActivity.this, WRUInterestedActivity.class);
+                WRUInterestedIntent.putExtra(Constants.INTENT_KEY_USER, userString);
+                UserRepository.getInstance().register(user);
+
                 startActivity(WRUInterestedIntent);
             }
         });

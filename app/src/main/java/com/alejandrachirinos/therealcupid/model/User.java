@@ -32,7 +32,7 @@ public class User {
     @Expose
     private int image;
     @Expose
-    private String Interest;
+    private String Interest="";
     @Expose
     private String aboutMe;
 
@@ -63,6 +63,7 @@ public class User {
         this.contacts = contacts;
         this.age = age;
         this.image = R.drawable.default_user;
+
         Interest = "";
     }
 

@@ -23,6 +23,7 @@ public class WRUInterestedActivity extends AppCompatActivity {
     public static String LOG = LoginActivity.class.getName();
     private AppCompatSeekBar demoseekBar;
     private Button donebutton;
+    private User user;
     private AppCompatImageButton buttonMujer;
     private AppCompatImageButton buttonAmbos;
     private AppCompatImageButton buttonHombre;
@@ -31,8 +32,25 @@ public class WRUInterestedActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interested);
+        receiveValues();
         initViews();
         addEvents();
+
+    }
+    private void receiveValues() {
+        //canal
+        Intent intent = getIntent();
+
+        //"objUser"
+        if (intent.hasExtra(Constants.INTENT_KEY_USER)) {
+
+            //ensaje con la clave: "objUser"
+            String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
+
+            //Convertir el String a un Objeto
+            user = new Gson().fromJson(userObj, User.class);
+
+        }
     }
 
     private void addEvents() {
@@ -58,6 +76,11 @@ public class WRUInterestedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent mujerIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
+                UserRepository.getInstance().register(user);
+
+                user.setInterest("mujeres");
+
+                UserRepository.getInstance().register(user);
                 startActivity(mujerIntent);
             }
         });
@@ -65,6 +88,8 @@ public class WRUInterestedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ambosIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
+                user.setInterest("ambos");
+                UserRepository.getInstance().register(user);
                 startActivity(ambosIntent);
             }
         });
@@ -72,6 +97,9 @@ public class WRUInterestedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent hombreIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
+                user.setInterest("hombres");
+                UserRepository.getInstance().register(user);
+
                 startActivity(hombreIntent);
             }
         });

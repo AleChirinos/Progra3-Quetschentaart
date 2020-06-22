@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 String username = editTextTextPersonName.getText().toString().trim();
                 String password = editTextTextPassword3.getText().toString().trim();
                 if (username.equals("")){
+
                     editTextTextPersonName.setError(getString(R.string.error_empty));
                     return;
                 }

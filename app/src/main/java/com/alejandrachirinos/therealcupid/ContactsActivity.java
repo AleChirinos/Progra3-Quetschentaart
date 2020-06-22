@@ -19,6 +19,7 @@ import com.alejandrachirinos.therealcupid.model.User;
 import com.alejandrachirinos.therealcupid.utils.Constants;
 import com.google.gson.Gson;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -129,5 +130,4 @@ public class ContactsActivity extends AppCompatActivity {
         Log.e(LOG, "fiiiiiil");
 
     }
-
 }
