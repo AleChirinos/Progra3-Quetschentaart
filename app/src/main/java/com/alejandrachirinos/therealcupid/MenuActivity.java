@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 public class MenuActivity extends AppCompatActivity {
     public static String LOG = LoginActivity.class.getName();
     private AppCompatImageButton buttonContact;
+    private AppCompatImageButton buttonProfile;
     private User user;
 
     @Override
@@ -56,10 +57,19 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(contactsIntent);
             }
         });
-    }
+
+        buttonProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profilIntent = new Intent(MenuActivity.this, ProfileActivity.class);
+                startActivity(profilIntent);
+            }
+        });
+}
 
     private void initViews() {
         buttonContact = findViewById(R.id.contactbutton);
+        buttonProfile = findViewById(R.id.profile);
     }
 
     @Override
