@@ -18,6 +18,12 @@ public class MenuActivity extends AppCompatActivity {
     public static String LOG = LoginActivity.class.getName();
     private AppCompatImageButton buttonContact;
     private AppCompatImageButton buttonProfile;
+    private AppCompatImageButton buttonRandomSearch;
+    private AppCompatImageButton buttonChats;
+    private AppCompatImageButton buttonContactUs;
+    private AppCompatImageButton buttonSettings;
+
+
     private User user;
 
     @Override
@@ -61,15 +67,58 @@ public class MenuActivity extends AppCompatActivity {
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 Intent profilIntent = new Intent(MenuActivity.this, ProfileActivity.class);
                 startActivity(profilIntent);
-            }
+                */
+                Toast.makeText(MenuActivity.this, //Origen
+                        "Pronto podras ver tu perfil aqui", //Mensaje
+                        Toast.LENGTH_SHORT) //Duracion
+                        .show();            }
+        });
+        buttonSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuActivity.this, //Origen
+                        "Pronto podras ver las configuraciones aqui", //Mensaje
+                        Toast.LENGTH_SHORT) //Duracion
+                        .show();            }
+        });
+        buttonRandomSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(MenuActivity.this, //Origen
+                        "Pronto podras hacer tu busqueda aqui", //Mensaje
+                        Toast.LENGTH_SHORT) //Duracion
+                        .show();            }
+        });
+        buttonContactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuActivity.this, //Origen
+                        "Pronto podras contactarnos aqui", //Mensaje
+                        Toast.LENGTH_SHORT) //Duracion
+                        .show();            }
+        });
+        buttonChats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MenuActivity.this, //Origen
+                        "Pronto podras ver tus chats aqui", //Mensaje
+                        Toast.LENGTH_SHORT) //Duracion
+                        .show();            }
         });
 }
 
     private void initViews() {
         buttonContact = findViewById(R.id.contactbutton);
         buttonProfile = findViewById(R.id.profile);
+        buttonChats = findViewById(R.id.chats);
+        buttonContactUs = findViewById(R.id.contact_us);
+        buttonRandomSearch = findViewById(R.id.random_search);
+        buttonSettings = findViewById(R.id.settings);
+
     }
 
     @Override
