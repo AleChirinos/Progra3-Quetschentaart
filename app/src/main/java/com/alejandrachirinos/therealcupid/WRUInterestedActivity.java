@@ -42,10 +42,10 @@ public class WRUInterestedActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         //"objUser"
-        if (intent.hasExtra(Constants.INTENT_KEY_USER)) {
+        if (intent.hasExtra(Constants.INTENT_REGISTER_USER)) {
 
             //ensaje con la clave: "objUser"
-            String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
+            String userObj = intent.getStringExtra(Constants.INTENT_REGISTER_USER);
 
             //Convertir el String a un Objeto
             user = new Gson().fromJson(userObj, User.class);
@@ -76,11 +76,11 @@ public class WRUInterestedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent mujerIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
-                UserRepository.getInstance().register(user);
-
+                user.setMujeres(true);
+                UserRepository userRepository = new UserRepository(WRUInterestedActivity.this);
+                userRepository.register(user);
                 //user.setInterest("mujeres");
 
-                UserRepository.getInstance().register(user);
                 startActivity(mujerIntent);
             }
         });
@@ -88,8 +88,10 @@ public class WRUInterestedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ambosIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
-                //user.setInterest("ambos");
-                UserRepository.getInstance().register(user);
+                user.setMujeres(true);
+                user.setHombres(true);
+                UserRepository userRepository = new UserRepository(WRUInterestedActivity.this);
+                userRepository.register(user);
                 startActivity(ambosIntent);
             }
         });
@@ -97,8 +99,9 @@ public class WRUInterestedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent hombreIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
-                //user.setInterest("hombres");
-                UserRepository.getInstance().register(user);
+                user.setHombres(true);
+                UserRepository userRepository = new UserRepository(WRUInterestedActivity.this);
+                userRepository.register(user);
 
                 startActivity(hombreIntent);
             }

@@ -479,8 +479,10 @@ public class RegisterActivity extends AppCompatActivity implements CallbackView 
                 User user = new User(name, lastname, username, email, universitycode, password, carrer, new LinkedList<User>(),  ageparse);
                 String userString = new Gson().toJson(user);
                 Intent WRUInterestedIntent = new Intent(RegisterActivity.this, WRUInterestedActivity.class);
-                WRUInterestedIntent.putExtra(Constants.INTENT_KEY_USER, userString);
-                UserRepository.getInstance().register(user);
+                WRUInterestedIntent.putExtra(Constants.INTENT_REGISTER_USER, userString);
+
+                UserRepository userRepository = new UserRepository(context);
+
 
                 startActivity(WRUInterestedIntent);
             }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,21 +22,33 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogin3;
     private EditText editTextTextPersonName;
     private EditText editTextTextPassword3;
+    private CheckBox rememberMeCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.e(LOG,"onCreate");
-        initViews();
-        addEvents();
-
+        UserRepository userRepository = new UserRepository(LoginActivity.this);
+        User userLogged = userRepository.getUserLogged();
+        if (userLogged != null) {
+            Intent menuIntent = new Intent(
+                    LoginActivity.this, //Origen
+                    MenuActivity.class); //Destino
+            String userString = new Gson().toJson(userLogged);
+            Log.e("user", userString);
+            menuIntent.putExtra(Constants.INTENT_KEY_USER, userString);
+            startActivity(menuIntent);
+        } else {
+            initViews();
+            addEvents();
+        }
     }
     private void initViews() {
         buttonLogin3 = findViewById(R.id.loginButton3);
         editTextTextPersonName = findViewById(R.id.editTextTextPersonName);
         editTextTextPassword3 = findViewById(R.id.editTextTextPassword3);
-
+        rememberMeCheckBox = findViewById(R.id.checkBox);
     }
     private void  addEvents(){
         buttonLogin3.setOnClickListener(new View.OnClickListener() {
@@ -54,12 +67,17 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                User userLogged = UserRepository.getInstance().Login(username, password);
+                UserRepository userRepository = new UserRepository(LoginActivity.this);
+                User userLogged = userRepository.Login(username, password);
+
                 if (userLogged == null){
                     Toast.makeText(LoginActivity.this,getString(R.string.error_incorrectValues), Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                if (rememberMeCheckBox.isChecked() && userLogged != null) {
+                    //Guardamos el objeto usuario en SharedPreferences
+                    userRepository.setUserLogged(userLogged);
+                }
                 Intent menuIntent = new Intent(LoginActivity.this, MenuActivity.class);
                 String userString = new Gson().toJson(userLogged);
                 menuIntent.putExtra(Constants.INTENT_KEY_USER, userString);
