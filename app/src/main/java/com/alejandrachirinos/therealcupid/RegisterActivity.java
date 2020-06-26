@@ -25,10 +25,19 @@ import com.alejandrachirinos.therealcupid.Repository.UserRepository;
 import com.alejandrachirinos.therealcupid.model.User;
 import com.alejandrachirinos.therealcupid.utils.Constants;
 import com.google.gson.Gson;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.LinkedList;
 
-public class RegisterActivity extends AppCompatActivity {
+import app.horses.camera.CallbackManager;
+import app.horses.camera.CameraManager;
+import app.horses.camera.view.CallbackView;
+
+public class RegisterActivity extends AppCompatActivity implements CallbackView {
+    private static final String TAG = RegisterActivity.class.getSimpleName();
+    private CallbackManager callbackManager = new CallbackManager();
+    private ImageView profilePicture;
+
 
     public static String LOG = RegisterActivity.class.getName();
     private LinearLayout parent;
@@ -275,6 +284,20 @@ public class RegisterActivity extends AppCompatActivity {
         genderRadioGroup.check(0);
         formLinearLayout.addView(genderRadioGroup);
 
+            //Perfil
+        profilePicture = new ImageView(context);
+        profilePicture.setImageResource(R.drawable.default_user);
+        LinearLayout.LayoutParams imageParams2 = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        formLinearLayout.addView(profilePicture);
+
+
+
+
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
         spaceTextView = new TextView(context);
         spaceTextView.setText("");
         formLinearLayout.addView(spaceTextView);
@@ -314,6 +337,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void addEvents(){
+        profilePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirCamera();
+            }
+        });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -469,5 +498,37 @@ public class RegisterActivity extends AppCompatActivity {
                 carrerEditText.setText("");
             }
         });
+    }
+
+    private void abrirCamera() {
+        CameraManager.openCamera(this);
+        callbackManager.setCallback(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void successCamera(String path) {
+        Log.e(TAG, "successCamera: " + path);
+
+        path = "file:///" + path;
+
+        ImageLoader.getInstance().displayImage(path, profilePicture);
+    }
+
+    @Override
+    public void errorCamera() {
+        Log.e(TAG, "errorCamera");
+
+    }
+
+    @Override
+    public void cancelCamera() {
+        Log.e(TAG, "cancelCamera");
+
     }
 }

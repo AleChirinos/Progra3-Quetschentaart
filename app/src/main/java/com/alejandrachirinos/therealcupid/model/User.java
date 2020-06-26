@@ -31,8 +31,13 @@ public class User {
 
     @Expose
     private int image;
+
     @Expose
-    private String Interest="";
+    private boolean hombres;
+
+    @Expose
+    private boolean mujeres;
+
     @Expose
     private String aboutMe;
 
@@ -42,13 +47,7 @@ public class User {
     @Expose
     private int age;
 
-    public String getInterest() {
-        return Interest;
-    }
 
-    public void setInterest(String interest) {
-        Interest = interest;
-    }
 
     public User(String name, String lastname, String username, String email, int universityCode, String password, String career,
                 LinkedList<User> contacts, int age) {
@@ -63,8 +62,9 @@ public class User {
         this.contacts = contacts;
         this.age = age;
         this.image = R.drawable.default_user;
+        this.mujeres=false;
+        this.hombres=false;
 
-        Interest = "";
     }
 
     public String getCareer() {
@@ -159,5 +159,21 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public boolean isHombres() {
+        return hombres;
+    }
+
+    public void setHombres(boolean hombres) {
+        this.hombres = hombres;
+    }
+
+    public boolean isMujeres() {
+        return mujeres;
+    }
+
+    public void setMujeres(boolean mujeres) {
+        this.mujeres = mujeres;
     }
 }

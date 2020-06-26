@@ -78,7 +78,7 @@ public class WRUInterestedActivity extends AppCompatActivity {
                 Intent mujerIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
                 UserRepository.getInstance().register(user);
 
-                user.setInterest("mujeres");
+                //user.setInterest("mujeres");
 
                 UserRepository.getInstance().register(user);
                 startActivity(mujerIntent);
@@ -88,7 +88,7 @@ public class WRUInterestedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent ambosIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
-                user.setInterest("ambos");
+                //user.setInterest("ambos");
                 UserRepository.getInstance().register(user);
                 startActivity(ambosIntent);
             }
@@ -97,7 +97,7 @@ public class WRUInterestedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent hombreIntent = new Intent(WRUInterestedActivity.this, LoginActivity.class);
-                user.setInterest("hombres");
+                //user.setInterest("hombres");
                 UserRepository.getInstance().register(user);
 
                 startActivity(hombreIntent);
