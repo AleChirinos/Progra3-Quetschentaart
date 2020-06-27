@@ -5,7 +5,9 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.hardware.Camera" android:required="true"/>
+    <uses-permission
+        android:name="android.hardware.Camera"
+        android:required="true" />
 
     <dist:module dist:instant="true" />
 
@@ -17,30 +19,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="app.horses.camera.ui.activity.TakeActivity" />
+            android:name=".ContactUsActivity"
+            android:label="Contact Us"></activity>
+        <activity android:name="app.horses.camera.ui.activity.TakeActivity" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/barlogin"></activity>
+            android:label="@string/barlogin" />
         <activity
             android:name=".MenuActivity"
-            android:label="@string/menu"></activity>
+            android:label="@string/menu" />
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/barregister"></activity>
+            android:label="@string/barregister" />
         <activity
             android:name=".ContactsActivity"
-            android:label="@string/contacts"></activity>
+            android:label="@string/contacts" />
         <activity
             android:name=".ProfileActivity"
-            android:label="@string/profile"></activity>
-
+            android:label="@string/profile" />
         <activity
             android:name=".ChatActivity"
-            android:label="@string/chat"></activity>
-
-        <activity android:name=".WRUInterestedActivity"
-            android:label="Interests"/>
-
+            android:label="@string/chat" />
+        <activity
+            android:name=".WRUInterestedActivity"
+            android:label="Interests" />
         <activity
             android:name=".InicioActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -50,7 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

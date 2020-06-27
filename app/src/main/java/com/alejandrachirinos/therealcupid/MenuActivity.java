@@ -74,10 +74,9 @@ public class MenuActivity extends AppCompatActivity {
         buttonContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this, //Origen
-                        "Pronto podras contactarnos aqui", //Mensaje
-                        Toast.LENGTH_SHORT) //Duracion
-                        .show();            }
+                Intent contactusIntent= new Intent(MenuActivity.this, ContactUsActivity.class);
+                startActivity(contactusIntent);}
+
         });
         buttonChats.setOnClickListener(new View.OnClickListener() {
             @Override
