@@ -1,10 +1,14 @@
 package com.alejandrachirinos.therealcupid;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -21,28 +25,31 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
 import com.alejandrachirinos.therealcupid.Repository.UserRepository;
 import com.alejandrachirinos.therealcupid.model.User;
 import com.alejandrachirinos.therealcupid.utils.Constants;
 import com.google.gson.Gson;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.io.File;
 import java.util.LinkedList;
 
-import app.horses.camera.CallbackManager;
-import app.horses.camera.CameraManager;
-import app.horses.camera.view.CallbackView;
+public class RegisterActivity extends AppCompatActivity{
 
-public class RegisterActivity extends AppCompatActivity implements CallbackView {
-    private static final String TAG = RegisterActivity.class.getSimpleName();
-    private CallbackManager callbackManager = new CallbackManager();
     private ImageView profilePicture;
-
+    private String ruta_foto;
+    private static int RC_TAKE_PICTURE = 101;
+    private static int RC_PERMISSIONS = 102;
 
     public static String LOG = RegisterActivity.class.getName();
     private LinearLayout parent;
     private Context context;
     private ScrollView scrollView;
+    private TextView photoTextView;
 
     private TextView nameTextView;
     private EditText nameEditText;
@@ -284,15 +291,22 @@ public class RegisterActivity extends AppCompatActivity implements CallbackView 
         genderRadioGroup.check(0);
         formLinearLayout.addView(genderRadioGroup);
 
+        spaceTextView = new TextView(context);
+        spaceTextView.setText("");
+        formLinearLayout.addView(spaceTextView);
             //Perfil
+
+        photoTextView = new TextView(context);
+        photoTextView.setText(getString(R.string.takePicture));
+        formLinearLayout.addView(photoTextView);
+        photoTextView.setTextColor(getResources().getColor(R.color.black));
+
         profilePicture = new ImageView(context);
         profilePicture.setImageResource(R.drawable.default_user);
         LinearLayout.LayoutParams imageParams2 = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         formLinearLayout.addView(profilePicture);
-
-
 
 
         spaceTextView = new TextView(context);
@@ -340,7 +354,8 @@ public class RegisterActivity extends AppCompatActivity implements CallbackView 
         profilePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirCamera();
+                pedirPermisoEscritura();
+
             }
         });
         next.setOnClickListener(new View.OnClickListener() {
@@ -502,35 +517,48 @@ public class RegisterActivity extends AppCompatActivity implements CallbackView 
         });
     }
 
-    private void abrirCamera() {
-        CameraManager.openCamera(this);
-        callbackManager.setCallback(this);
+    private void pedirPermisoEscritura(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.CAMERA},
+                    RC_PERMISSIONS);
+        } else {
+            lanzarCamara();
+        }
     }
 
+    private void lanzarCamara(){
+        ruta_foto= Environment.getExternalStorageDirectory() + "/mifoto123.jpg";
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Uri output = FileProvider.getUriForFile(RegisterActivity.this,
+                BuildConfig.APPLICATION_ID + ".provider",
+                new File(ruta_foto));
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, output);
+        startActivityForResult(intent, RC_TAKE_PICTURE);
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+
+        if(requestCode == RC_PERMISSIONS){
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                lanzarCamara();
+            } else {
+                Log.e(LOG,"Permiso denegado");
+            }
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void successCamera(String path) {
-        Log.e(TAG, "successCamera: " + path);
-
-        path = "file:///" + path;
-
-        ImageLoader.getInstance().displayImage(path, profilePicture);
-    }
-
-    @Override
-    public void errorCamera() {
-        Log.e(TAG, "errorCamera");
-
-    }
-
-    @Override
-    public void cancelCamera() {
-        Log.e(TAG, "cancelCamera");
-
+        File file = new File(ruta_foto);
+        if (file.exists()) {
+            //Bitmap bit_ =Bitmap.createScaledBitmap(BitmapFactory.decodeFile(ruta_foto), 400, 300,false);
+            profilePicture.setImageBitmap(BitmapFactory.decodeFile(ruta_foto));
+        }
     }
 }

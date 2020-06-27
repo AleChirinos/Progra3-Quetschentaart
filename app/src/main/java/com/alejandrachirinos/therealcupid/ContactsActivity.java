@@ -51,9 +51,9 @@ public class ContactsActivity extends AppCompatActivity {
     private void receiveValues() {
         Intent intent = getIntent();
 
-        if (intent.hasExtra(Constants.INTENT_KEY_USER)) {
+        if (intent.hasExtra(Constants.INTENT_MENU_CONTACTS)) {
 
-            String userObj = intent.getStringExtra(Constants.INTENT_KEY_USER);
+            String userObj = intent.getStringExtra(Constants.INTENT_MENU_CONTACTS);
 
             user = new Gson().fromJson(userObj, User.class);
 

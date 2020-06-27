@@ -71,6 +71,19 @@
             android:textSize="18sp" />
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/logOffTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adamina"
+        android:textSize="30dp"
+        android:text="Log off"
+        android:background="@drawable/rounded_borders_contact_name"/>
 
+    />
 
     </RelativeLayout>
