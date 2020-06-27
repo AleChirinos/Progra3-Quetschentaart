@@ -62,7 +62,6 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-
         buttonRandomSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,10 +82,8 @@ public class MenuActivity extends AppCompatActivity {
         buttonChats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this, //Origen
-                        "Pronto podras ver tus chats aqui", //Mensaje
-                        Toast.LENGTH_SHORT) //Duracion
-                        .show();            }
+                Intent chatIntent= new Intent(MenuActivity.this, ChatActivity.class);
+            startActivity(chatIntent);}
         });
 }
 

@@ -19,7 +19,7 @@
             android:layout_height="187dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="#EAEDF1"
+            android:background="#E3ECFD"
             app:srcCompat="@drawable/menu" />
 
         <LinearLayout
