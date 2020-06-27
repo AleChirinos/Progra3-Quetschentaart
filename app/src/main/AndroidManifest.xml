@@ -34,8 +34,13 @@
             android:name=".ProfileActivity"
             android:label="@string/profile"></activity>
 
+        <activity
+            android:name=".ChatActivity"
+            android:label="@string/chat"></activity>
+
         <activity android:name=".WRUInterestedActivity"
             android:label="Interests"/>
+
         <activity
             android:name=".InicioActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
