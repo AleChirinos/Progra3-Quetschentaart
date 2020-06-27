@@ -33,4 +33,6 @@
     <string name="career1">Carrera</string>
     <string name="age">Edad</string>
     <string name="chat">Mensajes</string>
+    <string name="message">"Escribe un mensaje "</string>
+    <string name="send">Enviar</string>
 </resources>
