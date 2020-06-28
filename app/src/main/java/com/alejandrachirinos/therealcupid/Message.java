@@ -7,10 +7,10 @@ public class Message {
     private String typeMessage;
     private String hora;
 
-    public Message(String s, String toString, String s1, String s2, String s3) {
+    public Message() {
     }
 
-    public Message(String mensaje) {
+    public Message(String mensaje, String name, String fotoPerfil, String typeMessage, String hora) {
         this.mensaje = mensaje;
         this.name = name;
         this.fotoPerfil = fotoPerfil;
