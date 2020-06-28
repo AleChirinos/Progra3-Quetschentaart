@@ -24,7 +24,7 @@ public class User {
     private int UniversityCode;
 
     @Expose
-    private transient String password;
+    private String password;
 
     @Expose
     private String career;
@@ -47,6 +47,9 @@ public class User {
     @Expose
     private int age;
 
+
+    @Expose
+    private String photoProfilePath;
 
 
     public User(String name, String lastname, String username, String email, int universityCode, String password, String career,
@@ -175,5 +178,13 @@ public class User {
 
     public void setMujeres(boolean mujeres) {
         this.mujeres = mujeres;
+    }
+
+    public String getPhotoProfilePath() {
+        return photoProfilePath;
+    }
+
+    public void setPhotoProfilePath(String photoProfilePath) {
+        this.photoProfilePath = photoProfilePath;
     }
 }

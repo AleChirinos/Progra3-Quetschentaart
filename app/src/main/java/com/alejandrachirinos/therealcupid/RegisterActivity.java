@@ -36,7 +36,11 @@ import com.alejandrachirinos.therealcupid.utils.Constants;
 import com.google.gson.Gson;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
+import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity{
 
@@ -304,8 +308,8 @@ public class RegisterActivity extends AppCompatActivity{
         profilePicture = new ImageView(context);
         profilePicture.setImageResource(R.drawable.default_user);
         LinearLayout.LayoutParams imageParams2 = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
         formLinearLayout.addView(profilePicture);
 
 
@@ -492,11 +496,12 @@ public class RegisterActivity extends AppCompatActivity{
                 }
 
                 User user = new User(name, lastname, username, email, universitycode, password, carrer, new LinkedList<User>(),  ageparse);
+                if(ruta_foto!=null && !ruta_foto.isEmpty()){
+                    user.setPhotoProfilePath(ruta_foto);
+                }
                 String userString = new Gson().toJson(user);
                 Intent WRUInterestedIntent = new Intent(RegisterActivity.this, WRUInterestedActivity.class);
                 WRUInterestedIntent.putExtra(Constants.INTENT_REGISTER_USER, userString);
-
-                UserRepository userRepository = new UserRepository(context);
 
 
                 startActivity(WRUInterestedIntent);
@@ -517,7 +522,7 @@ public class RegisterActivity extends AppCompatActivity{
         });
     }
 
-    private void pedirPermisoEscritura(){
+    private void pedirPermisoEscritura() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
@@ -530,28 +535,40 @@ public class RegisterActivity extends AppCompatActivity{
         }
     }
 
-    private void lanzarCamara(){
-        ruta_foto= Environment.getExternalStorageDirectory() + "/mifoto123.jpg";
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        Uri output = FileProvider.getUriForFile(RegisterActivity.this,
-                BuildConfig.APPLICATION_ID + ".provider",
-                new File(ruta_foto));
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, output);
-        startActivityForResult(intent, RC_TAKE_PICTURE);
+    private void lanzarCamara() {
+        File storageDir = Environment.getExternalStorageDirectory();
+        try {
+            File imageFile = File.createTempFile(
+                    "mifoto123",  //Nombre de archivo
+                    ".jpg",     //Extension
+                    storageDir      //Ruta base
+            );
+            ruta_foto = imageFile.getAbsolutePath();
+
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            Uri photoURI = FileProvider.getUriForFile(context,
+                    context.getPackageName() + ".provider", imageFile);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT,
+                    photoURI);
+            startActivityForResult(intent, RC_TAKE_PICTURE);
+        } catch (IOException ex) {
+            Log.e(LOG, "Error creando archivo", ex);
+        }
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
 
-        if(requestCode == RC_PERMISSIONS){
+        if (requestCode == RC_PERMISSIONS) {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 lanzarCamara();
             } else {
-                Log.e(LOG,"Permiso denegado");
+                Log.e(LOG, "Permiso denegado");
             }
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -559,6 +576,23 @@ public class RegisterActivity extends AppCompatActivity{
         if (file.exists()) {
             //Bitmap bit_ =Bitmap.createScaledBitmap(BitmapFactory.decodeFile(ruta_foto), 400, 300,false);
             profilePicture.setImageBitmap(BitmapFactory.decodeFile(ruta_foto));
+
         }
+    }
+    private File createImageFile() throws IOException {
+        String timeStamp =
+                new SimpleDateFormat("yyyyMMdd_HHmmss",
+                        Locale.getDefault()).format(new Date());
+        String imageFileName = "ruta_foto" + timeStamp + "_";
+        File storageDir =
+                getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        ruta_foto = image.getAbsolutePath();
+        return image;
     }
 }
