@@ -66,11 +66,10 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(MenuActivity.this, //Origen
-                        "Pronto podras hacer tu busqueda aqui", //Mensaje
-                        Toast.LENGTH_SHORT) //Duracion
-                        .show();            }
-        });
+                Intent randomIntent= new Intent(MenuActivity.this, activity_random.class);
+                startActivity(randomIntent);}
+
+        } );
         buttonContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

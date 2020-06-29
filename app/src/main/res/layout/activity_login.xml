@@ -67,7 +67,6 @@
             android:ems="10"
             android:inputType="textPassword"
             android:layout_margin="20dp"
-            android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="24sp" />
 

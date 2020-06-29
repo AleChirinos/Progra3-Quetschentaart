@@ -1,6 +1,7 @@
 package com.alejandrachirinos.therealcupid;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.alejandrachirinos.therealcupid.Repository.UserRepository;
@@ -23,8 +24,9 @@ public class ContactUsActivity extends AppCompatActivity {
         addEvents();
     }
     public void email(View view){
-        Intent intent=new Intent();
-        intent.setAction(Intent.ACTION_SEND);
+        Intent intent=new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","denissebaldiviesopacheco@gmail.com",null));
+
+        intent.putExtra(Intent.EXTRA_SUBJECT,"My problem");
         intent.putExtra(Intent.EXTRA_TEXT,"Hola! Quisiera hacer una pregunta, ");
         intent.setType("text/plain");
         startActivity(intent);
