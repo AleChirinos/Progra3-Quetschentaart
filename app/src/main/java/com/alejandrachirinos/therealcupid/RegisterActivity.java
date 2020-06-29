@@ -501,6 +501,15 @@ public class RegisterActivity extends AppCompatActivity{
                 if(ruta_foto!=null && !ruta_foto.isEmpty()){
                     user.setPhotoProfilePath(ruta_foto);
                 }
+                int genderid = genderRadioGroup.getCheckedRadioButtonId();
+                if(genderid==0){
+                    user.setEsHombre(true);
+                }else if(genderid==1){
+                    user.setEsMujer(true);
+                }else{
+                    user.setEsHombre(true);
+                    user.setEsMujer(true);
+                }
                 String userString = new Gson().toJson(user);
                 Intent WRUInterestedIntent = new Intent(RegisterActivity.this, WRUInterestedActivity.class);
                 WRUInterestedIntent.putExtra(Constants.INTENT_REGISTER_USER, userString);
