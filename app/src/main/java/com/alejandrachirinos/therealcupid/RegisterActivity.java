@@ -309,7 +309,9 @@ public class RegisterActivity extends AppCompatActivity{
         profilePicture.setImageResource(R.drawable.default_user);
         LinearLayout.LayoutParams imageParams2 = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        profilePicture.setLayoutParams(imageParams2);
+
         formLinearLayout.addView(profilePicture);
 
 
@@ -576,7 +578,7 @@ public class RegisterActivity extends AppCompatActivity{
         if (file.exists()) {
             //Bitmap bit_ =Bitmap.createScaledBitmap(BitmapFactory.decodeFile(ruta_foto), 400, 300,false);
             profilePicture.setImageBitmap(BitmapFactory.decodeFile(ruta_foto));
-
+            profilePicture.setAdjustViewBounds(true);
         }
     }
     private File createImageFile() throws IOException {
