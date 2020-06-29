@@ -28,16 +28,34 @@ public class UserRepository {
     }
 
     public User Login(String username, String password) {
+        String userLogging = null;
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return user;
             }
         }
+        if (preferences.contains(username)) {
+            userLogging = preferences.getString(username, null);
+            Log.e("Ultimo acceso", userLogging);
+
+        }
+        if (userLogging != null) {
+            //String --> Obj (deserializar)
+            User user2 = new Gson().fromJson(userLogging, User.class);
+            if(password.equals(user2.getPassword()))
+            return user2;
+        }
         return null;
     }
 
     public void register(User user) {
-        users.add(user);
+        if(!preferences.contains(user.getUsername())){
+            users.add(user);
+            String userLoggedString = new Gson().toJson(user);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString(user.getUsername(), userLoggedString);
+            editor.apply();
+        }
     }
 
     public void setUserLogged(User userLogged) {
