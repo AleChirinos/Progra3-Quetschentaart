@@ -26,6 +26,8 @@ public class ChatActivity extends AppCompatActivity {
 
    // private FireBaseDataBase
 
+    //cambios
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
