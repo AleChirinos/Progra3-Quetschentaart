@@ -32,9 +32,7 @@ public class MenuActivity extends AppCompatActivity {
         receiveValues();
         initViews();
         addEvents();
-    }
-
-    private void receiveValues() {
+    }    private void receiveValues() {
         //canal
         Intent intent = getIntent();
 
@@ -49,6 +47,8 @@ public class MenuActivity extends AppCompatActivity {
 
         }
     }
+
+
 
 
     private void addEvents() {
