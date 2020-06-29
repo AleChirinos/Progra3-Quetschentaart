@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "819254783765",
+    "firebase_url": "https://chat-the-real-cupid.firebaseio.com",
+    "project_id": "chat-the-real-cupid",
+    "storage_bucket": "chat-the-real-cupid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819254783765:android:f786b9c01b4e59f5b0431c",
+        "android_client_info": {
+          "package_name": "com.alejandrachirinos.therealcupid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819254783765-m0tirhjflo9coje8g57undptlfj2fs9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo89u_3q6kgr7hnCqp6wzh5jRjNAHfUjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819254783765-m0tirhjflo9coje8g57undptlfj2fs9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
