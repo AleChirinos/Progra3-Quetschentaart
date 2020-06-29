@@ -49,11 +49,11 @@
             android:textSize="20dp"
             android:layout_weight="1">
         </EditText>
-        <ImageButton
+        <Button
             android:id="@+id/btnEnviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/send">
-        </ImageButton>
+        </Button>
     </LinearLayout>
 </LinearLayout>
