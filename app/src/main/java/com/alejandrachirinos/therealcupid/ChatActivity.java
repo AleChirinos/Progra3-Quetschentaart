@@ -1,9 +1,11 @@
 package com.alejandrachirinos.therealcupid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,7 +35,6 @@ public class ChatActivity extends AppCompatActivity {
     private RecyclerView rvMensaje;
     private EditText txtMensajes;
     private Button btnEnviar;
-
     private MessageAdapter adapter;
 
     private List <Message> ms;
@@ -69,15 +70,15 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-                btnEnviar.setOnClickListener(new View.OnClickListener() {
+        btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (txtMensajes.length() == 0 || name.length() == 0)
                     return;
                 Message mMensajeVO = new Message();
                 mMensajeVO.setMensaje(txtMensajes.getText().toString());
-                adapter.addMessage( new Message(txtMensajes.getText().toString(), name.getText().toString(),"", "1", "00:00"));
                 FirebaseFirestore.getInstance().collection("Chat").add(mMensajeVO);
+                adapter.addMessage( new Message(txtMensajes.getText().toString(), name.getText().toString(),"", "1", ""));
                 txtMensajes.setText("");
             }
         });

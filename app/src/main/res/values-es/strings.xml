@@ -37,5 +37,6 @@
     <string name="send">Enviar</string>
     <string name="contact_us1">Tienes algún problema? Contactanos!</string>
     <string name="takePicture">Toma una foto</string>
+    <string name="user">Usuario</string>
 
 </resources>

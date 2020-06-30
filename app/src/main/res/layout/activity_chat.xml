@@ -23,9 +23,9 @@
              android:id="@+id/nameChat"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Alejandra Chirinos"
+             android:text="@string/user"
              android:textColor="@color/white"
-             android:background="#325f89"
+             android:background="@drawable/style_form_backbuttonsbottonazul"
              android:textSize="30dp"
              android:layout_gravity="center">
           </TextView>
@@ -40,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/txtMensaje"
             android:layout_width="match_parent"
