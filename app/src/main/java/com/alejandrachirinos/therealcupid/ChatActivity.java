@@ -60,14 +60,12 @@ public class ChatActivity extends AppCompatActivity {
         FirebaseFirestore.getInstance().collection("Chat").addSnapshotListener(new EventListener<QuerySnapshot>(){
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                for (DocumentChange mDocumentChange : queryDocumentSnapshots.getDocumentChanges()){
-                    if (mDocumentChange.getType() == DocumentChange.Type.ADDED) {
-                        ms.add(mDocumentChange.getDocument().toObject(Message.class));
-                        adapter.notifyDataSetChanged();
-                        rvMensaje.smoothScrollToPosition(ms.size());
-
-                    }
+                for (DocumentChange mDocumentChange : queryDocumentSnapshots.getDocumentChanges()) {
+                    ms.add(mDocumentChange.getDocument().toObject(Message.class));
                 }
+                adapter.setListMessage(ms);
+                adapter.notifyDataSetChanged();
+                rvMensaje.smoothScrollToPosition(ms.size());
             }
         });
 
