@@ -22,13 +22,10 @@
             android:layout_margin="20dp"
             android:layout_weight="1"
             android:background="@drawable/login1"
-            android:gravity="center"
-            android:padding="20dp"
+
             android:text="@string/username"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+
+            android:textColor="#FFFFFF" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -39,9 +36,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:layout_margin="20dp"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textPass"
@@ -50,13 +46,10 @@
             android:layout_margin="20dp"
             android:layout_weight="1"
             android:background="@drawable/fondo_interes"
-            android:padding="30dp"
-            android:gravity="center"
             android:text="@string/password"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+
+            android:textColor="#FFFFFF" />
 
         <EditText
             android:id="@+id/editTextTextPassword3"
@@ -67,8 +60,7 @@
             android:ems="10"
             android:inputType="textPassword"
             android:layout_margin="20dp"
-            android:textColorHint="@color/black"
-            android:textSize="24sp" />
+            android:textColorHint="@color/black" />
 
         <CheckBox
             android:id="@+id/checkBox"
@@ -79,8 +71,7 @@
             android:background="@drawable/boton7"
             android:buttonTint="#FFFFFF"
             android:text="@string/remember"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textColor="@color/white" />
 
         <LinearLayout
             android:id="@+id/buttonsidLinearLayout"

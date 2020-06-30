@@ -80,7 +80,11 @@ public class ContactUsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 UserRepository userRepository = new UserRepository(ContactUsActivity.this);
                 userRepository.deleteUserLogged();
+                Intent intent =new Intent(getApplicationContext(),InicioActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
 
             }
-        });    }
+        });
+    }
 }
