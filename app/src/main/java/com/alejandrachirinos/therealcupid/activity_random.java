@@ -35,8 +35,8 @@ public class activity_random extends AppCompatActivity {
         ageText = findViewById(R.id.textAge);
         careerText = findViewById(R.id.textCareer);
         HelloButton = findViewById(R.id.botonHello);
-        ThankUNext = findViewById(R.id.textView5);
-        fotoDePerfil = findViewById(R.id.imageProfile);
+        ThankUNext = findViewById(R.id.ThankUnext);
+        fotoDePerfil = findViewById(R.id.imageProfileRandom);
     }
     private void addEvents() {
         HelloButton.setOnClickListener(new View.OnClickListener() {

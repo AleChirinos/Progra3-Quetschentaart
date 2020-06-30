@@ -64,7 +64,7 @@
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/ThankUNext"
+            android:id="@+id/ThankUnext"
             android:layout_width="239dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
