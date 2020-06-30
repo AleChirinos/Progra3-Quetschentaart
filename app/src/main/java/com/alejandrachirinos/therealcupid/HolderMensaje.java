@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alejandrachirinos.therealcupid.R;
 
+import java.util.List;
+
 
 //HolderMensaje
 
@@ -58,4 +60,5 @@ public class HolderMensaje extends RecyclerView.ViewHolder {
     public void setPhotoProfile(ImageView photoProfile) {
         this.photoProfile = photoProfile;
     }
+
 }

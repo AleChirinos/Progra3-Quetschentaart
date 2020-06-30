@@ -309,7 +309,9 @@ public class RegisterActivity extends AppCompatActivity{
         profilePicture.setImageResource(R.drawable.default_user);
         LinearLayout.LayoutParams imageParams2 = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        profilePicture.setLayoutParams(imageParams2);
+
         formLinearLayout.addView(profilePicture);
 
 
@@ -499,6 +501,15 @@ public class RegisterActivity extends AppCompatActivity{
                 if(ruta_foto!=null && !ruta_foto.isEmpty()){
                     user.setPhotoProfilePath(ruta_foto);
                 }
+                int genderid = genderRadioGroup.getCheckedRadioButtonId();
+                if(genderid==0){
+                    user.setEsHombre(true);
+                }else if(genderid==1){
+                    user.setEsMujer(true);
+                }else{
+                    user.setEsHombre(true);
+                    user.setEsMujer(true);
+                }
                 String userString = new Gson().toJson(user);
                 Intent WRUInterestedIntent = new Intent(RegisterActivity.this, WRUInterestedActivity.class);
                 WRUInterestedIntent.putExtra(Constants.INTENT_REGISTER_USER, userString);
@@ -576,7 +587,7 @@ public class RegisterActivity extends AppCompatActivity{
         if (file.exists()) {
             //Bitmap bit_ =Bitmap.createScaledBitmap(BitmapFactory.decodeFile(ruta_foto), 400, 300,false);
             profilePicture.setImageBitmap(BitmapFactory.decodeFile(ruta_foto));
-
+            profilePicture.setAdjustViewBounds(true);
         }
     }
     private File createImageFile() throws IOException {

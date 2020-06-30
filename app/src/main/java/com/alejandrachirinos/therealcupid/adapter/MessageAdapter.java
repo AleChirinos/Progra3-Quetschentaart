@@ -51,4 +51,8 @@ public class MessageAdapter extends RecyclerView.Adapter<HolderMensaje> {
         return listMessage.size();
     }
 
+    public void setListMessage(List<Message> listMessage) {
+        this.listMessage = listMessage;
+    }
+
 }

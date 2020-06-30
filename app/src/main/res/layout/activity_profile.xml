@@ -93,7 +93,7 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/AboutMe"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:background="@drawable/boton6"
