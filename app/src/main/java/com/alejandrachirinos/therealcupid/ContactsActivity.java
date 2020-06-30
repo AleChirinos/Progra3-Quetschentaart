@@ -109,10 +109,9 @@ public class ContactsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 User contact = items.get(position);
-                Toast.makeText(ContactsActivity.this, //Origen
-                        getString(R.string.temporal_message_contacts) + contact.getName(), //Mensaje
-                        Toast.LENGTH_SHORT) //Duracion
-                        .show();
+
+                Intent chatIntent= new Intent(ContactsActivity.this, ChatActivity.class);
+                startActivity(chatIntent);
             }
         });
         Log.e(LOG, "events2");
