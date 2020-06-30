@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alejandrachirinos.therealcupid.model.User;
@@ -14,6 +15,7 @@ import com.google.gson.Gson;
 
 public class activity_random extends AppCompatActivity {
     private User user;
+    private ImageView fotoDePerfil;
     private TextView textUser;
     private TextView ageText;
     private TextView careerText;
@@ -34,6 +36,7 @@ public class activity_random extends AppCompatActivity {
         careerText = findViewById(R.id.textCareer);
         HelloButton = findViewById(R.id.botonHello);
         ThankUNext = findViewById(R.id.ThankUNext);
+        fotoDePerfil = findViewById(R.id.imageProfileRandom);
     }
     private void addEvents() {
         HelloButton.setOnClickListener(new View.OnClickListener() {

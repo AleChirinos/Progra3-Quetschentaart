@@ -1,55 +1,81 @@
 package com.alejandrachirinos.therealcupid.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.alejandrachirinos.therealcupid.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.LinkedList;
 
+@Entity(tableName = "User")
 public class User {
 
-    @Expose
-    private String name;
-
-    @Expose
-    private String lastname;
-
+    @PrimaryKey
+    @ColumnInfo(name = "username")
     @Expose
     private String username;
 
+    @ColumnInfo(name = "name")
+    @Expose
+    private String name;
+
+    @ColumnInfo(name = "lastname")
+    @Expose
+    private String lastname;
+
+    @ColumnInfo(name = "email")
     @Expose
     private String email;
 
+    @ColumnInfo(name = "universityCode")
     @Expose
     private int UniversityCode;
 
+    @ColumnInfo(name = "password")
     @Expose
     private String password;
 
+    @ColumnInfo(name = "career")
     @Expose
     private String career;
 
+    @ColumnInfo(name = "image")
     @Expose
     private int image;
 
+    @ColumnInfo(name = "hombres")
     @Expose
     private boolean hombres;
 
+    @ColumnInfo(name = "mujeres")
     @Expose
     private boolean mujeres;
 
+    @ColumnInfo(name = "aboutMe")
     @Expose
     private String aboutMe;
 
     @Expose
     private LinkedList<User> contacts;
 
+    @ColumnInfo(name = "edad")
     @Expose
     private int age;
 
-
+    @ColumnInfo(name = "photoPath")
     @Expose
     private String photoProfilePath;
+
+    @ColumnInfo(name = "esHombre")
+    @Expose
+    private boolean esHombre;
+
+    @ColumnInfo(name = "esMujer")
+    @Expose
+    private boolean esMujer;
 
 
     public User(String name, String lastname, String username, String email, int universityCode, String password, String career,
@@ -67,7 +93,8 @@ public class User {
         this.image = R.drawable.default_user;
         this.mujeres=false;
         this.hombres=false;
-
+        this.esHombre=false;
+        this.esMujer=false;
     }
 
     public String getCareer() {
@@ -186,5 +213,21 @@ public class User {
 
     public void setPhotoProfilePath(String photoProfilePath) {
         this.photoProfilePath = photoProfilePath;
+    }
+
+    public boolean isEsHombre() {
+        return esHombre;
+    }
+
+    public void setEsHombre(boolean esHombre) {
+        this.esHombre = esHombre;
+    }
+
+    public boolean isEsMujer() {
+        return esMujer;
+    }
+
+    public void setEsMujer(boolean esMujer) {
+        this.esMujer = esMujer;
     }
 }
