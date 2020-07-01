@@ -120,7 +120,7 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     private void fillContacts() {
-        items.add(new User("prueba","prueba","prueba","p@g",50000,"abc","sistemas",null, 20));
+        items.add(new User("prueba","prueba","prueba","p@g",50000,"abc","sistemas", 20));
         if(user != null && user.getContacts()!=null) {
             for (User e : user.getContacts()) {
                 items.add(e);

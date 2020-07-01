@@ -497,9 +497,9 @@ public class RegisterActivity extends AppCompatActivity{
                     return;
                 }
 
-                User user = new User(name, lastname, username, email, universitycode, password, carrer, new LinkedList<User>(),  ageparse);
+                User user = new User(name, lastname, username, email, universitycode, password, carrer,  ageparse);
                 if(ruta_foto!=null && !ruta_foto.isEmpty()){
-                    user.setPhotoProfilePath(ruta_foto);
+                    user.setPhotoPath(ruta_foto);
                 }
                 int genderid = genderRadioGroup.getCheckedRadioButtonId();
                 if(genderid==0){

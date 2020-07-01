@@ -1,7 +1,9 @@
 package com.alejandrachirinos.therealcupid.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.alejandrachirinos.therealcupid.R;
@@ -13,7 +15,6 @@ import java.util.LinkedList;
 @Entity(tableName = "User")
 public class User {
 
-    @PrimaryKey
     @ColumnInfo(name = "username")
     @Expose
     private String username;
@@ -30,9 +31,11 @@ public class User {
     @Expose
     private String email;
 
+    @NonNull
+    @PrimaryKey
     @ColumnInfo(name = "universityCode")
     @Expose
-    private int UniversityCode;
+    private int universityCode;
 
     @ColumnInfo(name = "password")
     @Expose
@@ -58,16 +61,17 @@ public class User {
     @Expose
     private String aboutMe;
 
+    @Ignore
     @Expose
     private LinkedList<User> contacts;
 
-    @ColumnInfo(name = "edad")
+    @ColumnInfo(name = "age")
     @Expose
     private int age;
 
     @ColumnInfo(name = "photoPath")
     @Expose
-    private String photoProfilePath;
+    private String photoPath;
 
     @ColumnInfo(name = "esHombre")
     @Expose
@@ -77,18 +81,17 @@ public class User {
     @Expose
     private boolean esMujer;
 
-
     public User(String name, String lastname, String username, String email, int universityCode, String password, String career,
-                LinkedList<User> contacts, int age) {
+                int age) {
         this.name = name;
         this.lastname = lastname;
         this.username = username;
         this.email = email;
-        this.UniversityCode = universityCode;
+        this.universityCode = universityCode;
         this.password = password;
         this.career = career;
         this.aboutMe = "";
-        this.contacts = contacts;
+        this.contacts = new LinkedList<>();
         this.age = age;
         this.image = R.drawable.default_user;
         this.mujeres=false;
@@ -97,36 +100,12 @@ public class User {
         this.esMujer=false;
     }
 
-    public String getCareer() {
-        return career;
+    public String getUsername() {
+        return username;
     }
 
-    public void setCareer(String career) {
-        this.career = career;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getUniversityCode() {
-        return UniversityCode;
-    }
-
-    public void setUniversityCode(int universityCode) {
-        UniversityCode = universityCode;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
@@ -137,12 +116,68 @@ public class User {
         this.name = name;
     }
 
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getUniversityCode() {
+        return universityCode;
+    }
+
+    public void setUniversityCode(int universityCode) {
+        this.universityCode = universityCode;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getCareer() {
+        return career;
+    }
+
+    public void setCareer(String career) {
+        this.career = career;
+    }
+
     public int getImage() {
         return image;
     }
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public boolean isHombres() {
+        return hombres;
+    }
+
+    public void setHombres(boolean hombres) {
+        this.hombres = hombres;
+    }
+
+    public boolean isMujeres() {
+        return mujeres;
+    }
+
+    public void setMujeres(boolean mujeres) {
+        this.mujeres = mujeres;
     }
 
     public String getAboutMe() {
@@ -169,50 +204,12 @@ public class User {
         this.age = age;
     }
 
-    public void addContact(User user) {
-        if (contacts != null) {
-            contacts.add(user);
-        }
+    public String getPhotoPath() {
+        return photoPath;
     }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public boolean isHombres() {
-        return hombres;
-    }
-
-    public void setHombres(boolean hombres) {
-        this.hombres = hombres;
-    }
-
-    public boolean isMujeres() {
-        return mujeres;
-    }
-
-    public void setMujeres(boolean mujeres) {
-        this.mujeres = mujeres;
-    }
-
-    public String getPhotoProfilePath() {
-        return photoProfilePath;
-    }
-
-    public void setPhotoProfilePath(String photoProfilePath) {
-        this.photoProfilePath = photoProfilePath;
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 
     public boolean isEsHombre() {
@@ -230,4 +227,11 @@ public class User {
     public void setEsMujer(boolean esMujer) {
         this.esMujer = esMujer;
     }
+
+    public void addContact(User user) {
+        if (contacts != null) {
+            contacts.add(user);
+        }
+    }
+
 }

@@ -8,10 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.alejandrachirinos.therealcupid.Repository.local.OtherUsersRepository;
+
 public class InicioActivity extends AppCompatActivity {
     public static String LOG = LoginActivity.class.getName();
     private Button buttonLogin;
     private Button buttonRegister;
+    private OtherUsersRepository otherUsersRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class InicioActivity extends AppCompatActivity {
         Log.e(LOG, "onCreate");
         initViews();
         addEvents();
+        otherUsersRepository=new OtherUsersRepository(getApplication());
     }
     private void initViews(){
         buttonLogin = findViewById(R.id.loginButton);

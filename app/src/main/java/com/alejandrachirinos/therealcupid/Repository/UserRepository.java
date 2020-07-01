@@ -101,19 +101,19 @@ public class UserRepository {
     private void defaultValues() {
         //Administrador
         User adminUser = new User("Alejandra", "Chirinos", "chiri", "ale@gmail.com",
-                51132, "123", "sistemas", new LinkedList<User>(), 19);
+                51132, "123", "sistemas",19);
         users.add(adminUser);
         //Usuarios de prueba
         User prueba1 = new User("Pablo", "aaa", "pablo", "pab@gmail.com",
-                50000, "123", "sistemas", null, 20);
-        User prueba2 = new User("Paola", "aaa", "pablo", "pab@gmail.com",
-                50000, "123", "sistemas", null, 20);
-        User prueba3 = new User("Pilar", "aaa", "pablo", "pab@gmail.com",
-                50000, "123", "sistemas", null, 20);
-        User prueba4 = new User("Peter", "aaa", "pablo", "pab@gmail.com",
-                50000, "123", "sistemas", null, 20);
+                50000, "123", "sistemas",20);
+        User prueba2 = new User("Paola", "aaa", "paola", "pab@gmail.com",
+                50000, "123", "sistemas",20);
+        User prueba3 = new User("Pilar", "aaa", "pilar", "pab@gmail.com",
+                50000, "123", "sistemas",20);
+        User prueba4 = new User("Peter", "aaa", "peter", "pab@gmail.com",
+                50000, "123", "sistemas",20);
         User prueba5 = new User("Pietro", "aaa", "pablo", "pab@gmail.com",
-                50000, "123", "sistemas", null, 20);
+                50000, "123", "sistemas",20);
         //Imagenes de usuarios de prueba
         prueba1.setImage(R.drawable.photo1);
         prueba2.setImage(R.drawable.photo2);
