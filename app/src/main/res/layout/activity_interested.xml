@@ -9,11 +9,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="10dp"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="361dp"
-            android:layout_height="668dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:background="@drawable/fondo_inte"
@@ -22,14 +23,14 @@
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
-                android:layout_height="187dp"
+                android:layout_height="200dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/genero" />
 
             <TextView
                 android:id="@+id/text2"
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo_interes"
@@ -39,12 +40,12 @@
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <androidx.appcompat.widget.AppCompatSeekBar
                 android:id="@+id/demoseekBar"
-                android:layout_width="283dp"
-                android:layout_height="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:progress="17"
@@ -54,9 +55,9 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="133dp"
-                android:layout_height="10dp"
-                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo_interes"
                 android:gravity="center"
@@ -65,13 +66,13 @@
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:paddingTop="20dp"
+                android:paddingTop="10dp"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatImageButton
@@ -88,11 +89,10 @@
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/ambos"
                     android:layout_width="match_parent"
-                    android:layout_height="127dp"
+                    android:layout_height="125dp"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-
                     android:background="@drawable/fondo_botton9"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/ambos" />
@@ -100,7 +100,7 @@
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/hombre"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="125dp"
                     android:layout_weight="1"
                     android:background="@drawable/fondo_boton8"
                     android:scaleType="fitCenter"

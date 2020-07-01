@@ -38,5 +38,6 @@
     <string name="contact_us1">Tienes algún problema? Contactanos!</string>
     <string name="takePicture">Toma una foto</string>
     <string name="user">Usuario</string>
+    <string name="userMessage">Usuario</string>
 
 </resources>

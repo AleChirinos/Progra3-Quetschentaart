@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
 public class ChatActivity extends AppCompatActivity {
 
     private ImageView fotoPerfil;
-    private TextView name;
+    private EditText name;
     private RecyclerView rvMensaje;
     private EditText txtMensajes;
     private Button btnEnviar;
@@ -46,7 +46,7 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         fotoPerfil= (ImageView)findViewById(R.id.photoProfile);
-        name = (TextView)findViewById(R.id.nameChat);
+        name = (EditText) findViewById(R.id.txtName);
         rvMensaje = (RecyclerView)findViewById(R.id.rvMensajes);
         txtMensajes = (EditText)findViewById(R.id.txtMensaje);
         btnEnviar = (Button)findViewById(R.id.btnEnviar);
@@ -62,11 +62,13 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 for (DocumentChange mDocumentChange : queryDocumentSnapshots.getDocumentChanges()) {
-                    ms.add(mDocumentChange.getDocument().toObject(Message.class));
+                    //if (mDocumentChange.getType() == DocumentChange.Type.ADDED) {
+                        ms.add(mDocumentChange.getDocument().toObject(Message.class));
+                   // }
                 }
-                adapter.setListMessage(ms);
                 adapter.notifyDataSetChanged();
                 rvMensaje.smoothScrollToPosition(ms.size());
+                adapter.setListMessage(ms);
             }
         });
 
@@ -77,8 +79,9 @@ public class ChatActivity extends AppCompatActivity {
                     return;
                 Message mMensajeVO = new Message();
                 mMensajeVO.setMensaje(txtMensajes.getText().toString());
+                mMensajeVO.setName(name.getText().toString());
+                //adapter.addMessage( new Message(txtMensajes.getText().toString(), name.getText().toString(),"", "1", ""));
                 FirebaseFirestore.getInstance().collection("Chat").add(mMensajeVO);
-                adapter.addMessage( new Message(txtMensajes.getText().toString(), name.getText().toString(),"", "1", ""));
                 txtMensajes.setText("");
             }
         });
