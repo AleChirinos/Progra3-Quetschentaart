@@ -38,6 +38,8 @@
     <string name="contact_us1">Tienes algún problema? Contactanos!</string>
     <string name="takePicture">Toma una foto</string>
     <string name="user">Usuario</string>
+    <string name="addContactFromRandom">" ha sido añadido a tus contactos."</string>
+    <string name="rejectContactFromRandom">Este usuario ya está en tus contactos.</string>
     <string name="userMessage">Usuario</string>
 
 </resources>

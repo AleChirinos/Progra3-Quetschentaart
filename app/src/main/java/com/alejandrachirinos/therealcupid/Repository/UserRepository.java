@@ -57,7 +57,19 @@ public class UserRepository {
             editor.apply();
         }
     }
+    public void setUsuarioActivo(User user){
+        String usuarioActivo = new Gson().toJson(user);
 
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("usuarioActivo",usuarioActivo);
+        editor.putString(user.getUsername(),usuarioActivo);
+        editor.apply();
+    }
+    public User getUsuarioActivo(){
+        String usuarioActivoString = preferences.getString("usuarioActivo",null);
+        User usuarioActivo = new Gson().fromJson(usuarioActivoString, User.class);
+        return usuarioActivo;
+    }
     public void setUserLogged(User userLogged) {
         String userLoggedString = new Gson().toJson(userLogged);
 

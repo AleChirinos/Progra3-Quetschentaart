@@ -40,5 +40,7 @@
     <string name="contact_us1">You have problems? Contact Us!</string>
     <string name="takePicture">Take a picture</string>
     <string name="user">Username</string>
+    <string name="addContactFromRandom">has been added in your contacts.</string>
+    <string name="rejectContactFromRandom">This user is already in your contacts.</string>
     <string name="userMessage">Username</string>
 </resources>

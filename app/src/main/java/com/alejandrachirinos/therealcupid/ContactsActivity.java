@@ -14,6 +14,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alejandrachirinos.therealcupid.Repository.UserRepository;
 import com.alejandrachirinos.therealcupid.adapter.ContactsAdapter;
 import com.alejandrachirinos.therealcupid.model.User;
 import com.alejandrachirinos.therealcupid.utils.Constants;
@@ -26,6 +27,7 @@ import java.util.List;
 public class ContactsActivity extends AppCompatActivity {
     public static String LOG = MenuActivity.class.getName();
 
+    private UserRepository userRepository;
     private Context context;
     private User user;
     private List<User> items = new ArrayList<>();
@@ -42,23 +44,11 @@ public class ContactsActivity extends AppCompatActivity {
         setContentView(R.layout.contacts_layout);
         Log.e(LOG, "onCreateContacts");
 
-        receiveValues();
         initViews();
         addEvents();
         fillContacts();
     }
 
-    private void receiveValues() {
-        Intent intent = getIntent();
-
-        if (intent.hasExtra(Constants.INTENT_MENU_CONTACTS)) {
-
-            String userObj = intent.getStringExtra(Constants.INTENT_MENU_CONTACTS);
-
-            user = new Gson().fromJson(userObj, User.class);
-
-        }
-    }
 
     @Override
     protected void onStart() {
@@ -100,6 +90,8 @@ public class ContactsActivity extends AppCompatActivity {
         contactsListView = findViewById(R.id.contactsListView);
         adapter = new ContactsAdapter(context, items);
         contactsListView.setAdapter(adapter);
+        userRepository = new UserRepository(ContactsActivity.this);
+        user=userRepository.getUsuarioActivo();
     }
 
     private void addEvents() {
@@ -119,7 +111,6 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
     private void fillContacts() {
-        items.add(new User("prueba","prueba","prueba","p@g",50000,"abc","sistemas", 20));
         if(user != null && user.getContacts()!=null) {
             for (User e : user.getContacts()) {
                 items.add(e);

@@ -56,8 +56,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent contactsIntent = new Intent(MenuActivity.this, ContactsActivity.class);
-                String userString = new Gson().toJson(user);
-                contactsIntent.putExtra(Constants.INTENT_MENU_CONTACTS, userString);
+
                 startActivity(contactsIntent);
             }
         });

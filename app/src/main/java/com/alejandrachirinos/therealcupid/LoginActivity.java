@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     //Guardamos el objeto usuario en SharedPreferences
                     userRepository.setUserLogged(userLogged);
                 }
+                userRepository.setUsuarioActivo(userLogged);
                 Intent menuIntent = new Intent(LoginActivity.this, MenuActivity.class);
                 String userString = new Gson().toJson(userLogged);
                 menuIntent.putExtra(Constants.INTENT_KEY_USER, userString);
